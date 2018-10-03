@@ -1,0 +1,137 @@
+<project name="Generic ALSB Service Build and Release" default="build" basedir=".">
+
+
+        <property file="./build.properties" />
+        <property name="eclipse.home" value="${bea.home}/tools/eclipse_pkgs/1.1/eclipse_3.2.2/eclipse" />
+        <property name="workspace.dir" value="${user.dir}" />
+        <property name="weblogic.home" value="${bea.home}/wlserver_10.0" />
+        <property name="metadata.dir" value="${workspace.dir}/.metadata" />
+        <basename property="project.name" file="${user.dir}"/>
+
+            <echo>User dir is :::::::${user.dir}</echo>
+            <echo>Project Dir is :::::::::${project.name}</echo>
+        <taskdef name="alsbReleaseGen" classname="uk.co.o2.alsb.build.anttask.ALSBReleasePackager" />
+        <typedef resource="org/tigris/subversion/svnant/svnantlib.xml"/>
+
+        <available file="${workspace.dir}/${config.project}" property="config.proj.exists" />
+
+        <target name="checkoutConfigProj" unless="config.proj.exists">
+                <!--
+                <delete dir="${workspace.dir}/.svn" failonerror="false" quiet="true"/>
+                -->
+
+                <move file="${workspace.dir}/.svn" tofile="${workspace.dir}/.svn_origin" failonerror="false" overwrite="true"/>
+                <svn username="${svn.username}" password="${svn.password}" javahl="false" svnkit="true">
+                        <checkout url="${svn.base.url}/${config.project}/trunk/${config.project}/" destPath="${workspace.dir}" />
+                </svn>
+                <move file="${workspace.dir}/.svn_origin" tofile="${workspace.dir}/.svn" failonerror="false" overwrite="true"/>
+        </target>
+
+        <target name="deleteConfigProj" if="config.proj.exists">
+                <delete failonerror="false" includeemptydirs="true" dir="${workspace.dir}/${config.project}" quiet="true" />
+        </target>
+
+        <target name="export">
+                <available file="${metadata.dir}" type="dir" property="metadata.dir.exists" />
+
+                <!--
+                        Checkout the config project only if it is not already checked out.
+                -->
+                <antcall target="checkoutConfigProj" />
+
+                <!--
+                Backup the original config project prefs file which has the
+                template. Once we are done with generating the release, restore it
+        -->
+                <copy file="${workspace.dir}/${config.project}/.settings/com.bea.alsb.core.prefs" tofile="${workspace.dir}/${config.project}/.settings/com.bea.alsb.core.prefs.orig" overwrite="true" />
+
+<!--            <chmod dir="${workspace.dir}/${config.project}" perm="ugo+rwx" includes="**/*"/> -->
+
+
+
+                <!--
+                Replacing the token PROJECTS IN config project prefs file with
+                the actual project name.
+        -->
+                <replace file="${workspace.dir}/${config.project}/.settings/com.bea.alsb.core.prefs" token="%PROJECTS%" value="${project.name}" />
+
+
+                <!--
+                        Create output directory where the jar file would be created.
+                -->
+                <mkdir dir="${workspace.dir}/output" />
+
+                <!--
+                        Generate the jar file of the project
+                -->
+                <property name="config.jar" value="${workspace.dir}/output/${project.name}.jar" />
+
+<!--            <java dir="${eclipse.home}" jar="${eclipse.home}/startup.jar" fork="true" failonerror="true" maxmemory="768m">
+                        <arg line="-application com.bea.alsb.core.ConfigExport" />
+                        <arg line="-data ${workspace.dir}" />
+                        <arg line="-configProject ${config.project}" />
+                        <arg line="-configJar ${config.jar}" />
+                        <arg line="-configSubProjects ${project.name}" />
+                        <sysproperty key="weblogic.home" value="${weblogic.home}" />
+                     <classpath>
+<pathelement location="/opt/bea/alsb30/alsb_3.0/eclipse/plugins/com.bea.alsb.core_1.0.0/alsbcore.jar"/>
+</classpath>
+                </java> -->
+
+                <!--
+                Restore the original prefs file.
+        -->
+                <move file="${workspace.dir}/${config.project}/.settings/com.bea.alsb.core.prefs.orig" tofile="${workspace.dir}/${config.project}/.settings/com.bea.alsb.core.prefs" />
+
+                <antcall target="deleteConfigProj"/>
+
+                <antcall target="deleteMetadata"/>
+        </target>
+
+        <!--
+      - Default/Nightly Build
+      - Verifies if output/MyService.jar exists
+      - Compares contents outside the directory with that of Jar
+      - Fails the packaging if files are out-of-sync
+      - Packages all files
+      - Creates nightly build release MyService_release_yyyymmdd.zip
+      - Generates Release Manifest
+  -->
+
+        <target name="build" depends="export">
+                <alsbReleaseGen buildtype="nightly" />
+        </target>
+
+
+        <!--
+      - Verifies if output/MyService.jar exists
+      - Compares contents outside the directory with that of Jar
+      - Fails the packaging if files are out-of-sync
+      - Packages all files
+      - Creates a release build - MyService_release_major_minor_buildnumber.zip
+      - Generates Release Manifest
+  -->
+
+        <target name="release" depends="export">
+                <alsbReleaseGen buildtype="release" />
+        </target>
+
+
+        <target name="clean">
+                <delete failonerror="false">
+                        <fileset dir="dist" includes="**/*" />
+                </delete>
+                <delete dir="dist" />
+                <antcall target="deleteConfigProj" />
+                <antcall target="deleteMetadata" />
+                <antcall target="deleteOutputDir" />
+        </target>
+
+        <target name="deleteMetadata" unless="metadata.dir.exists">
+                <delete failonerror="false" includeemptydirs="true" quiet="true" dir="${metadata.dir}" />
+        </target>
+
+        <target name="deleteOutputDir">
+                <delete failonerror="false" includeemptydirs="true" quiet="true" dir="${metadata.dir}/output" />
+        </target>
+</project>

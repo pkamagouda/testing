@@ -3,15 +3,15 @@ Auto-generated Service Manifest Information -- By Service Factory Build Tool
 ------------------------------------------------------------------------------
 
 Service Name:        ManageOrder_2_0
-Version:             2.0.69
-Release:             ManageOrder_Osb_release_2_0_69.zip
-Tag:                 ManageOrder_Osb_2_0_69
+Version:             2.0.70
+Release:             ManageOrder_Osb_release_2_0_70.zip
+Tag:                 ManageOrder_Osb_2_0_70
 Build Date:          Thu Apr 26 11:03:46 UTC 2018
 Built on:            ip-10-40-242-47.eu-west-1.compute.internal
 Built by:            root
-Release location:    http://cursa.dev.o2.co.uk/release_candidates/soa-factory/esb/ManageOrder_Osb_release_2_0_69.zip
-Release Note:        Products LAN: http://devo2.dev.o2.co.uk:18080/confluence/display/SF/ManageOrder_Osb_release_2_0_69
-                     UK LAN:       http://devo2:18080/confluence/display/SF/ManageOrder_Osb_release_2_0_69
+Release location:    http://cursa.dev.o2.co.uk/release_candidates/soa-factory/esb/ManageOrder_Osb_release_2_0_70.zip
+Release Note:        Products LAN: http://devo2.dev.o2.co.uk:18080/confluence/display/SF/ManageOrder_Osb_release_2_0_70
+                     UK LAN:       http://devo2:18080/confluence/display/SF/ManageOrder_Osb_release_2_0_70
 
 ------------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@ Release Deployment Steps:
 
 As wlapp user:
 
-/opt/pftools/bin/spadmin deploy alsbservice location=http://cursa.dev.o2.co.uk/release_candidates/soa-factory/esb/ManageOrder_Osb_release_2_0_69.zip env=[env key]
+/opt/pftools/bin/spadmin deploy alsbservice location=http://cursa.dev.o2.co.uk/release_candidates/soa-factory/esb/ManageOrder_Osb_release_2_0_70.zip env=[env key]
 
 [env key] = local | dev | int | ref | live
 

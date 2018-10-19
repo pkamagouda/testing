@@ -12,7 +12,7 @@
 	<target name="zip_creation">
 		<delete dir="ManageOrder_Osb_${file_name}/ManageOrder_${file_name}/" />
 		<copy file="release-info.txt" todir="ManageOrder_Osb_${file_name}" />
-		<zip destfile="ManageOrder_Osb_${zip_name}.zip" basedir="ManageOrder_Osb_${file_name}"/>
+		<zip destfile="ManageOrder_Osb_${zip_name}.zip" basedir="Manage_Order_Osb_${file_name}"/>
 	</target>
 
 	

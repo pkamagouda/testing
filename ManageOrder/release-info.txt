@@ -2,16 +2,16 @@
 Auto-generated Service Manifest Information -- By Service Factory Build Tool
 ------------------------------------------------------------------------------
 
-Service Name:        ManageOrder_2_0
-Version:             2.0.71
-Release:             ManageOrder_Osb_release_2_0_71.zip
-Tag:                 ManageOrder_Osb_2_0_71
+Service Name:        ManageOrder_3_0
+Version:             3.0.71
+Release:             ManageOrder_Osb_release_3_0_71.zip
+Tag:                 ManageOrder_Osb_3_0_71
 Build Date:          Thu Apr 26 11:03:46 UTC 2018
 Built on:            ip-10-40-242-47.eu-west-1.compute.internal
 Built by:            root
-Release location:    http://cursa.dev.o2.co.uk/release_candidates/soa-factory/esb/ManageOrder_Osb_release_2_0_71.zip
-Release Note:        Products LAN: http://devo2.dev.o2.co.uk:18080/confluence/display/SF/ManageOrder_Osb_release_2_0_71
-                     UK LAN:       http://devo2:18080/confluence/display/SF/ManageOrder_Osb_release_2_0_71
+Release location:    http://cursa.dev.o2.co.uk/release_candidates/soa-factory/esb/ManageOrder_Osb_release_3_0_71.zip
+Release Note:        Products LAN: http://devo2.dev.o2.co.uk:18080/confluence/display/SF/ManageOrder_Osb_release_3_0_71
+                     UK LAN:       http://devo2:18080/confluence/display/SF/ManageOrder_Osb_release_3_0_71
 
 ------------------------------------------------------------------------------
 
@@ -23,16 +23,16 @@ Release Deployment Steps:
 
 As wlapp user:
 
-/opt/pftools/bin/spadmin deploy alsbservice location=http://cursa.dev.o2.co.uk/release_candidates/soa-factory/esb/ManageOrder_Osb_release_2_0_71.zip env=[env key]
+/opt/pftools/bin/spadmin deploy alsbservice location=http://cursa.dev.o2.co.uk/release_candidates/soa-factory/esb/ManageOrder_Osb_release_3_0_71.zip env=[env key]
 
 [env key] = local | dev | int | ref | live
 
 
 Once deployed, this release-info.txt file will be stored in the following location:
 
-	/usr/o2/esb/ext_resources/soa-platform/services-config/ManageOrder_2_0/
+	/usr/o2/esb/ext_resources/soa-platform/services-config/ManageOrder_3_0/
 
-This can be used to identify the deployed version of ManageOrder_2_0 service in the
+This can be used to identify the deployed version of ManageOrder_3_0 service in the
 respective environment.
 
 ------------------------------------------------------------------------------
@@ -51,11 +51,11 @@ ff7b28aaf0ef549b6466fdef4ec4be95 *config/perf/service-config.xml
 ff7b28aaf0ef549b6466fdef4ec4be95 *config/live/service-config.xml
 d1339e1414cca3ea0b904fb68b85ad9d *config/log-config.xml
 7a4e9f7bd4bc02d51c6dbb73403eb0c5 *config/errormap-config.xml
-adbc2c25889a060b4590f11697251191 *testing/ref-int/36600  SOAPUI Request Response Document for  ManageOrder_2_0(Archive order ).doc
-c11494f83572a7ae2f3511798c81136a *testing/ref-int/36600_SOAPUI_Request Response of ManageOrder_2.0.doc
-c37753652e32e98ea1ebaf1f4e4cce3b *testing/ref-int/Manageorder_2_0_test.xml
-022c8fbc80c3782e57429216f823e524 *testing/dev/ManageOrder_2_0_UnitTest.xml
-48249473968672629f42a879ac7a5edf *testing/ManageOrder_2_0_TestDataRequirement.xls
-fc91dd430e0d6b598a40835586d44711 *output/ManageOrder_2_0.jar
+adbc2c25889a060b4590f11697251191 *testing/ref-int/36600  SOAPUI Request Response Document for  ManageOrder_3_0(Archive order ).doc
+c11494f83572a7ae2f3511798c81136a *testing/ref-int/36600_SOAPUI_Request Response of ManageOrder_3.0.doc
+c37753652e32e98ea1ebaf1f4e4cce3b *testing/ref-int/Manageorder_3_0_test.xml
+022c8fbc80c3782e57429216f823e524 *testing/dev/ManageOrder_3_0_UnitTest.xml
+48249473968672629f42a879ac7a5edf *testing/ManageOrder_3_0_TestDataRequirement.xls
+fc91dd430e0d6b598a40835586d44711 *output/ManageOrder_3_0.jar
 
 ------------------------------------------------------------------------------

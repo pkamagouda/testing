@@ -1,0 +1,10 @@
+Started on 1 Nov, 2018 3:26:00 PM
+Using strategy: Default
+[poll] Last Built Revision: Revision de0a86e370df6cf13583c724b9844158bd4135c8 (refs/remotes/origin/jenkinsCode)
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > git ls-remote -h https://github.com/O2IP/APIConnect.git # timeout=10
+Found 2 remote heads on https://github.com/O2IP/APIConnect.git
+[poll] Latest remote head revision on refs/heads/jenkinsCode is: 251413c8fa703af5aa9c360a0ed589e65ecce2cc
+Done. Took 3.7 sec
+Changes found

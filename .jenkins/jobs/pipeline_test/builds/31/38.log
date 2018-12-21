@@ -1,0 +1,7 @@
+FATAL: [ssh-agent] Could not find specified credentials
+[ssh-agent] Looking for ssh-agent implementation...
+[ssh-agent]   Exec ssh-agent (binary ssh-agent on a remote machine)
+$ ssh-agent
+SSH_AUTH_SOCK=/tmp/ssh-TqoW2TPQUzwx/agent.26088
+SSH_AGENT_PID=26092
+[ssh-agent] Started.

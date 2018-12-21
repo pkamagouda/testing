@@ -1,0 +1,17 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<fingerprint>
+  <timestamp>2018-10-30 04:54:07.674 UTC</timestamp>
+  <md5sum>6d7e7a7fdcd78711869eb1fab091ba30</md5sum>
+  <fileName>Credential id=cd511ec3-4d47-45c3-9bc0-9007e1e9bd2f name=akansha.chetty@cognizant.com/******</fileName>
+  <usages>
+    <entry>
+      <string>API</string>
+      <ranges>1-19</ranges>
+    </entry>
+    <entry>
+      <string>API_Test</string>
+      <ranges>1-6</ranges>
+    </entry>
+  </usages>
+  <facets/>
+</fingerprint>

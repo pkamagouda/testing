@@ -1,0 +1,3 @@
+[second] Running shell script
++ git checkout scm
+Switched to branch 'scm'

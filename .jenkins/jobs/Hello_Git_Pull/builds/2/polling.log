@@ -1,0 +1,8 @@
+Started on 23 Oct, 2018 8:35:00 PM
+Using strategy: Default
+ > git --version # timeout=10
+ > git ls-remote -h https://github.com/pkamagouda/Hello.git # timeout=10
+Found 1 remote heads on https://github.com/pkamagouda/Hello.git
+[poll] Latest remote head revision on refs/heads/master is: ba3d2cd3a9435c76de1e0f810cd25e0504f3187f
+Done. Took 1.7 sec
+Changes found

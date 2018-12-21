@@ -1,0 +1,17 @@
+Started on 4 Dec, 2018 5:48:00 PM
+Using strategy: Default
+[poll] Last Built Revision: Revision 4d18542980891cf2f14d94d30e90bfb15a427f02 (refs/remotes/origin/master)
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > git ls-remote -h https://github.com/pkamagouda/pipeline.git # timeout=10
+Found 1 remote heads on https://github.com/pkamagouda/pipeline.git
+[poll] Latest remote head revision on refs/heads/master is: 4d18542980891cf2f14d94d30e90bfb15a427f02 - already built by 55
+Using strategy: Default
+[poll] Last Built Revision: Revision ebbe4d2371b19a621b9c1d0003309b9ac6163a9f (refs/remotes/origin/master)
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > git ls-remote -h https://github.com/pkamagouda/testing.git # timeout=10
+Found 3 remote heads on https://github.com/pkamagouda/testing.git
+[poll] Latest remote head revision on refs/heads/master is: 67f76a8fc93f94834d9ea1ce04ba74af41f7e3d9
+Done. Took 3.3 sec
+Changes found

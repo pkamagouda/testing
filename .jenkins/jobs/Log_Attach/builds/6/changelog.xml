@@ -1,0 +1,11 @@
+commit e46081a315f0ff3b1fbea7843748a4f7c5f02b9d
+tree 7d1064f4e813f3d533eb716fda9c71af153e795d
+parent 6793e16d3ca766dceaf970824e7ebb34abf022a9
+author pkamagouda <prapulita2294@gmail.com> 2018-11-02 11:37:16 +0530
+committer GitHub <noreply@github.com> 2018-11-02 11:37:16 +0530
+
+    Update buildmail.html
+
+
+
+:100644 100644 ccd47cbb8e7962e6bd8ddf1979a68ead7d3ea18a 5148c113494559a324ca17fe6c6b8424eb91059e M	buildmail/buildmail.html

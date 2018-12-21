@@ -1,0 +1,8 @@
+[pipeline_test@2] Running shell script
++ ls
+first
+first@tmp
+hello
+second
+second@tmp
+testing

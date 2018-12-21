@@ -1,0 +1,33 @@
+commit 4fb302e8cae2ffc9adb01f5190c760776837f86a
+tree 637d053863a449c1d6369d2842e6d805debca86f
+parent 6583672307d707bbc5e82adec06bf99d50fb3afa
+author pkamagouda <prapulita2294@gmail.com> 2018-11-05 13:47:47 +0530
+committer GitHub <noreply@github.com> 2018-11-05 13:47:47 +0530
+
+    Update deployfailheader
+
+
+
+:100644 100644 f6eadd7b9fefccb3a1d2236dcf932f8475e3c7c3 d7ddb58a7a9d44aaf31eb614a6696cd4fd66f54b M	Hello/deployfail/deployfailheader
+commit 6583672307d707bbc5e82adec06bf99d50fb3afa
+tree 088c94ebf7272bc088fc7845ce26719a6979dd89
+parent 69febcecc1c6b241356b6ddbd9e817d76e76630e
+author pkamagouda <prapulita2294@gmail.com> 2018-11-05 13:47:05 +0530
+committer GitHub <noreply@github.com> 2018-11-05 13:47:05 +0530
+
+    Updated the file to attach the build logs
+
+
+
+:100644 100644 f6d942406c5145e259e2fbbb89660634def9dbce 32a2a03f55b8fcd8e3a7b0fd5f0835e35ff3e53e M	Hello/deployfail/deployfail.html
+commit 69febcecc1c6b241356b6ddbd9e817d76e76630e
+tree 9176363e7f90ca7ff8c65db66be5bccc2c5a0e0d
+parent 8600983bb8c4778758706f0da0810cb5cd86ae67
+author Priyanka Chavan <priyanka.chavan2@cognizant.com> 2018-10-31 16:18:57 +0530
+committer Priyanka Chavan <priyanka.chavan2@cognizant.com> 2018-10-31 16:18:57 +0530
+
+    adding latest file
+
+
+
+:100644 100644 72f4d15af0a131296a4213a10a240040367a2b7d e06a9c95fc7bd532ea2ecb20de47606972595404 M	Hello/release-info.txt

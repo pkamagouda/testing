@@ -1,0 +1,18 @@
+Started by an SCM change
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/cts1/.jenkins/workspace/API
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/O2IP/APIConnect.git # timeout=10
+Fetching upstream changes from https://github.com/O2IP/APIConnect.git
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/O2IP/APIConnect.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/jenkinsCode^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/jenkinsCode^{commit} # timeout=10
+Checking out Revision 251413c8fa703af5aa9c360a0ed589e65ecce2cc (refs/remotes/origin/jenkinsCode)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 251413c8fa703af5aa9c360a0ed589e65ecce2cc
+Commit message: "Add files via upload"
+ > git rev-list --no-walk de0a86e370df6cf13583c724b9844158bd4135c8 # timeout=10
+Finished: SUCCESS

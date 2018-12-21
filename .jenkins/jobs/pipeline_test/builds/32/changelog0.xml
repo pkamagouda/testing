@@ -1,0 +1,11 @@
+commit 4d18542980891cf2f14d94d30e90bfb15a427f02
+tree 997114495aab8550c90eb822387718390b9ab55c
+parent 34c41a156c967fd2abd74fbeac0ddec99394b25b
+author pkamagouda <prapulita2294@gmail.com> 2018-12-04 12:38:45 +0530
+committer GitHub <noreply@github.com> 2018-12-04 12:38:45 +0530
+
+    Testing of scm in pipeline job.
+
+
+
+:000000 100644 0000000000000000000000000000000000000000 a124f871baf743e21c578052e81f9cddc71d15d1 A	pipeline_scm_test

@@ -1,0 +1,5 @@
+[second] Running shell script
++ git commit -m testing
+[master aadd7d1] testing
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 hello

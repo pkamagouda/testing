@@ -1,0 +1,32 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>#cp -r ../release-info.txt .
+#Current=`date`
+#Previous=`awk &apos;FNR==8 {print $3&quot; &quot;$4&quot; &quot;$5&quot; &quot;$6&quot; &quot;$7&quot; &quot;$8}&apos; release-info.txt`
+#Previous=`awk &apos;FNR == 8 {print $3 $4 $5 $6 $7 $8}&apos; release-info.txt`
+#`sed -i -e &quot;s/${Previous}/${Current}/&quot; release-info.txt`
+
+
+#last_rel=`awk &apos;FNR == 6 {print $2}&apos; release-info.txt | cut -d &apos;.&apos; -f 3`
+#rel=&quot;$((last_rel + 1))&quot;
+#sed -i -e &quot;s/1_0_${last_rel}*/1_0_${rel}/g&quot; -e &quot;s/1.0.${last_rel}/1.0.${rel}/g&quot; -e &quot;s/${Previous}/${Current}/&quot; release-info.txt
+
+echo &quot;hello&quot;</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

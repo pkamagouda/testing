@@ -1,0 +1,68 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@2.25">
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
+      <triggers>
+        <com.cloudbees.jenkins.GitHubPushTrigger plugin="github@1.29.3">
+          <spec></spec>
+        </com.cloudbees.jenkins.GitHubPushTrigger>
+        <hudson.triggers.SCMTrigger>
+          <spec>* * * * *</spec>
+          <ignorePostCommitHooks>false</ignorePostCommitHooks>
+        </hudson.triggers.SCMTrigger>
+      </triggers>
+    </org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
+  </properties>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.59">
+    <script>node(){
+    stage(&apos;File_Creation&apos;){
+        writeFile file: &apos;hello&apos;, text: &apos;hi&apos;
+    }
+    
+    stage(&apos;Clone_Pipeline&apos;){
+        dir(&apos;first&apos;){
+        git branch: &apos;master&apos;,
+            credentialsId: &apos;1ccb2e10-e0ee-473a-a4a8-2a7f00ff9a9a&apos;,
+            url: &apos;https://github.com/pkamagouda/pipeline.git&apos;
+        }
+    }
+    
+    stage(&apos;Clone_testing&apos;){
+        dir(&apos;second&apos;){
+        git branch: &apos;master&apos;,
+            credentialsId: &apos;1ccb2e10-e0ee-473a-a4a8-2a7f00ff9a9a&apos;,
+            url: &apos;https://github.com/pkamagouda/testing.git&apos;
+withCredentials([[$class: &apos;UsernamePasswordMultiBinding&apos;, 
+                credentialsId: &apos;1ccb2e10-e0ee-473a-a4a8-2a7f00ff9a9a&apos;, 
+                usernameVariable: &apos;pkamagouda&apos;, 
+                passwordVariable: &apos;Pannu@1125&apos;]]){
+            sh(&apos;touch hello&apos;)
+            sh(&apos;git add hello&apos;)
+            sh(&apos;git commit -m &quot;testing&quot;&apos;)
+            sh(&apos;git checkout scm&apos;)
+            sh(&apos;touch s9&apos;)
+            sh(&apos;git add s9&apos;)
+            sh(&apos;git commit -m &quot;s9 adding&quot;&apos;)
+            sh(&apos;git checkout master&apos;)
+            sh(&apos;git merge scm&apos;)
+            sh(&quot;git push origin master&quot;)
+            sh(&apos;git push https://${usernameVariable}:${passwordVariable}@repo_url --all&apos;)
+}
+           
+        }
+    }
+}  
+    
+
+
+
+
+</script>
+    <sandbox>false</sandbox>
+  </definition>
+  <triggers/>
+  <disabled>false</disabled>
+</flow-definition>

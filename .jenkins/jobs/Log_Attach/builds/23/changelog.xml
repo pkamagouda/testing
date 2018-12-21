@@ -1,0 +1,22 @@
+commit 70894ad915f7622383c704fb7e90d6d4878700f9
+tree 504b8d9979969b621be7fbde130881b99f3baf16
+parent b5e9981f1a8c3293db26cce0f7634bdf4f6206ce
+author pkamagouda <prapulita2294@gmail.com> 2018-11-05 13:31:25 +0530
+committer GitHub <noreply@github.com> 2018-11-05 13:31:25 +0530
+
+    Update deployfailheader
+
+
+
+:100644 100644 b2af512def852b477c5b8907fae809e6eb822dd4 fa0c6b0bf295d4415f4871516413ff9882ee9052 M	deployfail/deployfailheader
+commit b5e9981f1a8c3293db26cce0f7634bdf4f6206ce
+tree e4fdb9fd0dd9ea2f910736b0c5c31119daf571a2
+parent 7712999c24b4c9cd8cf92b395b085e8f330fe069
+author pkamagouda <prapulita2294@gmail.com> 2018-11-05 13:30:48 +0530
+committer GitHub <noreply@github.com> 2018-11-05 13:30:48 +0530
+
+    Update deployfail.html
+
+
+
+:100644 100644 c88aeeddad8c71509dfd3686cbb32d45d1e8b41d 531c90425d3684d8447d0ba8c73df196762a79e5 M	deployfail/deployfail.html

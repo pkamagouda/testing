@@ -1,0 +1,9 @@
+Started by user [8mha:////4FHcU5I2etDPgUld/d6aTCyOnwrknvgzOTluF5JftG6EAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/cts1/.jenkins/workspace/date
+[date] $ /bin/sh -xe /tmp/jenkins1923005800887777276.sh
++ date
++ DATE=Wed Oct 24 15:39:41 IST 2018
++ echo Wed Oct 24 15:39:41 IST 2018
+Wed Oct 24 15:39:41 IST 2018
+Finished: SUCCESS

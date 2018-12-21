@@ -1,0 +1,35 @@
+Started by an SCM change
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/cts1/.jenkins/workspace/test1
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
+Cloning the remote Git repository
+Cloning repository https://github.com/pkamagouda/pipeline.git
+ > git init /home/cts1/.jenkins/workspace/test1 # timeout=10
+Fetching upstream changes from https://github.com/pkamagouda/pipeline.git
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/pkamagouda/pipeline.git +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/pkamagouda/pipeline.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/pkamagouda/pipeline.git # timeout=10
+Fetching upstream changes from https://github.com/pkamagouda/pipeline.git
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/pkamagouda/pipeline.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision 4d18542980891cf2f14d94d30e90bfb15a427f02 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 4d18542980891cf2f14d94d30e90bfb15a427f02
+Commit message: "Testing of scm in pipeline job."
+ > git rev-list --no-walk 34c41a156c967fd2abd74fbeac0ddec99394b25b # timeout=10
+No emails were triggered.
+[test1] $ /bin/sh -xe /home/cts1/tomcat/apache-tomcat-8.5.35/temp/jenkins6800271345171443435.sh
++ echo hello
+hello
+Email was triggered for: Success
+Sending email for trigger: Success
+Not sending mail to unregistered user noreply@github.com because your SCM claimed this was associated with a user ID ‘[8mha:////4LaqMrbbUPVCrQaUrfGYYRkdFlDqKM4GZkWi/KhFzLS1AAAAjh+LCAAAAAAAAP9b85aBtbiIQSajNKU4P08vOT+vOD8nVc+jsiC1KCczL9svvyTVzHb1RttJBUeZGJg8GdhyUvPSSzJ8GJhLi3JKGIR8shLLEvVzEvPS9YNLijLz0q0rihik0IxzhtAgwxgggJGJgaGiAMhgL2Hg1S8tTi3Sz8svSi3IqQQAmoRtrZIAAAA=[0mnoreply' which your security realm does not recognize; you may need changes in your SCM plugin
+Sending email to: prapulita.kamagouda@cognizant.com
+Finished: SUCCESS

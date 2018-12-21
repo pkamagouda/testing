@@ -1,0 +1,4 @@
+[second] Running shell script
++ git push https://:@github.com/****/testing.git --all
+remote: Anonymous access to ****/testing.git denied.
+fatal: Authentication failed for 'https://:@github.com/****/testing.git/'

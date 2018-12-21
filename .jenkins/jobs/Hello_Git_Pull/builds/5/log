@@ -1,0 +1,30 @@
+Started by user [8mha:////4FHcU5I2etDPgUld/d6aTCyOnwrknvgzOTluF5JftG6EAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/cts1/.jenkins/workspace/Hello_Git_Pull
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
+Cloning the remote Git repository
+Cloning repository https://github.com/O2IP/Hello.git
+ > git init /home/cts1/.jenkins/workspace/Hello_Git_Pull # timeout=10
+Fetching upstream changes from https://github.com/O2IP/Hello.git
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/O2IP/Hello.git +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/O2IP/Hello.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/O2IP/Hello.git # timeout=10
+Fetching upstream changes from https://github.com/O2IP/Hello.git
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/O2IP/Hello.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision ba2aaeb258f9aa2ed5583eda835edb4cd2dd09c0 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f ba2aaeb258f9aa2ed5583eda835edb4cd2dd09c0
+Commit message: "Signed-off-by: megha <megha_nagaraja@thbs.com> Committing as part of "Work Manager" Project. Live version-1.0.25"
+First time build. Skipping changelog.
+No emails were triggered.
+No emails were triggered.
+Triggering a new build of [8mha:////4ImcPvWHsL7hiIKY0H6ZMv+U5o5MAx4rOjvR/39C/uerAAAAqB+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyxEgYZ/az8JH2P1Jyc/Hin0syclPjEvJR4l9SCnPxKfQBYyGAE0QAAAA==[0mHello_Build_and_Deploy
+Finished: SUCCESS

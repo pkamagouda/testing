@@ -1,0 +1,79 @@
+Started by user [8mha:////4FHcU5I2etDPgUld/d6aTCyOnwrknvgzOTluF5JftG6EAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/cts1/.jenkins/workspace/Hello_Build_and_Deploy
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
+Cloning the remote Git repository
+Cloning repository https://github.com/pkamagouda/Test_O2.git
+ > git init /home/cts1/.jenkins/workspace/Hello_Build_and_Deploy # timeout=10
+Fetching upstream changes from https://github.com/pkamagouda/Test_O2.git
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/pkamagouda/Test_O2.git +refs/heads/*:refs/remotes/origin/*
+ERROR: Error cloning remote repo 'origin'
+hudson.plugins.git.GitException: Command "git fetch --tags --progress https://github.com/pkamagouda/Test_O2.git +refs/heads/*:refs/remotes/origin/*" returned status code 128:
+stdout: 
+stderr: fatal: unable to access 'https://github.com/pkamagouda/Test_O2.git/': Could not resolve host: github.com
+
+	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommandIn(CliGitAPIImpl.java:2016)
+	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommandWithCredentials(CliGitAPIImpl.java:1735)
+	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.access$300(CliGitAPIImpl.java:72)
+	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl$1.execute(CliGitAPIImpl.java:420)
+	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl$2.execute(CliGitAPIImpl.java:629)
+	at hudson.plugins.git.GitSCM.retrieveChanges(GitSCM.java:1146)
+	at hudson.plugins.git.GitSCM.checkout(GitSCM.java:1186)
+	at hudson.scm.SCM.checkout(SCM.java:504)
+	at hudson.model.AbstractProject.checkout(AbstractProject.java:1208)
+	at hudson.model.AbstractBuild$AbstractBuildExecution.defaultCheckout(AbstractBuild.java:574)
+	at jenkins.scm.SCMCheckoutStrategy.checkout(SCMCheckoutStrategy.java:86)
+	at hudson.model.AbstractBuild$AbstractBuildExecution.run(AbstractBuild.java:499)
+	at hudson.model.Run.execute(Run.java:1810)
+	at hudson.model.FreeStyleBuild.run(FreeStyleBuild.java:43)
+	at hudson.model.ResourceController.execute(ResourceController.java:97)
+	at hudson.model.Executor.run(Executor.java:429)
+ERROR: Error cloning remote repo 'origin'
+Performing Post build task...
+Could not match :INSTALLED  : False
+Logical operation result is FALSE
+Skipping script  : echo "updating buildmail.html"
+cd buildmail
+chmod 777 buildmaildeploy.sh
+cd ..
+
+sshpass -p "${password}" scp -pr buildmail kamagp@goto.ref.o2.co.uk:/home/kamagp
+
+sshpass -p "${password}" ssh -tt kamagp@goto.ref.o2.co.uk "scp -pr /home/kamagp/buildmail/* kamagp@lyon:/home/kamagp"
+
+sshpass -p "${password}" ssh -tt kamagp@goto.ref.o2.co.uk "ssh -tt lyon './buildmaildeploy.sh'"
+END OF POST BUILD TASK 	: 0
+Match found for :Error : True
+Match found for :Exception : True
+Could not match :error  : False
+Match found for :ERROR : True
+Could not match :failure  : False
+Logical operation result is TRUE
+Running script  : echo "copying deployfail to lyon server"
+cd deployfail
+chmod 777 deployfail.sh
+sed -i -e "s/value/${BUILD_DISPLAY_NAME}/g" deployfail.html
+sed -i -e "s/number/${BUILD_ID}/g" deployfail.html
+cd ..
+
+sshpass -p "${password}" scp -pr deployfail kamagp@goto.ref.o2.co.uk:/home/kamagp
+
+sshpass -p "${password}" ssh -tt kamagp@goto.ref.o2.co.uk "scp -pr /home/kamagp/deployfail/* kamagp@lyon:/home/kamagp"
+
+sshpass -p "${password}" ssh -tt kamagp@goto.ref.o2.co.uk "ssh -tt lyon './deployfail.sh'"
+
+exit 1
+[Hello_Build_and_Deploy] $ /bin/sh -xe /tmp/jenkins9127597940694837391.sh
++ echo copying deployfail to lyon server
+copying deployfail to lyon server
++ cd deployfail
+/tmp/jenkins9127597940694837391.sh: 3: cd: can't cd to deployfail
+POST BUILD TASK : FAILURE
+END OF POST BUILD TASK : 1
+ESCALATE FAILED POST BUILD TASK TO JOB STATUS
+Build did not succeed and the project is configured to only push after a successful build, so no pushing will occur.
+Finished: FAILURE

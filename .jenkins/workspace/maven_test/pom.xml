@@ -1,0 +1,24 @@
+<project>
+  <groupId>gabriel</groupId>
+  <artifactId>FSA</artifactId>
+  <version>1.0.0</version>
+ 
+  <modelVersion>4.0.0</modelVersion>
+<build>
+<plugins>
+<plugin>
+  <artifactId>maven-assembly-plugin</artifactId>
+  <version>2.6</version>
+  <configuration>
+    <descriptors>
+      <descriptor>src/main/assembly/zip.xml</descriptor>
+    </descriptors>
+<finalName>Hello_Osb</finalName>
+<appendAssemblyId>false</appendAssemblyId>
+  </configuration>
+
+</plugin>
+</plugins>
+</build>
+
+</project>

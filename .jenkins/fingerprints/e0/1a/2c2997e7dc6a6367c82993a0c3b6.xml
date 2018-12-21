@@ -1,0 +1,33 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<fingerprint>
+  <timestamp>2018-12-06 06:27:40.430 UTC</timestamp>
+  <md5sum>e01a2c2997e7dc6a6367c82993a0c3b6</md5sum>
+  <fileName>Credential id=1ccb2e10-e0ee-473a-a4a8-2a7f00ff9a9a name=pkamagouda/******</fileName>
+  <usages>
+    <entry>
+      <string>test1</string>
+      <ranges>39</ranges>
+    </entry>
+    <entry>
+      <string>Hello_Git_Pull</string>
+      <ranges>35-38</ranges>
+    </entry>
+    <entry>
+      <string>Hello_Build_and_Deploy</string>
+      <ranges>61-64</ranges>
+    </entry>
+    <entry>
+      <string>Hello_Version_Save</string>
+      <ranges>29-33</ranges>
+    </entry>
+    <entry>
+      <string>test</string>
+      <ranges>46</ranges>
+    </entry>
+    <entry>
+      <string>pipeline_test</string>
+      <ranges>56</ranges>
+    </entry>
+  </usages>
+  <facets/>
+</fingerprint>

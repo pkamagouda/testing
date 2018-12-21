@@ -1,0 +1,244 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>This job will deploy the latest release on the web logic server.</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <jenkins.model.BuildDiscarderProperty>
+      <strategy class="hudson.tasks.LogRotator">
+        <daysToKeep>-1</daysToKeep>
+        <numToKeep>30</numToKeep>
+        <artifactDaysToKeep>-1</artifactDaysToKeep>
+        <artifactNumToKeep>-1</artifactNumToKeep>
+      </strategy>
+    </jenkins.model.BuildDiscarderProperty>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.9.1">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/pkamagouda/Test_O2.git</url>
+        <credentialsId>1ccb2e10-e0ee-473a-a4a8-2a7f00ff9a9a</credentialsId>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>cp -r /home/cts1/.jenkins/workspace/Hello_Git_Pull/* .
+
+cd Hello
+
+echo &quot;Updating the build date in the release-info.txt file&quot;
+Current=`date`
+Previous=`awk &apos;FNR==8 {print $3&quot; &quot;$4&quot; &quot;$5&quot; &quot;$6&quot; &quot;$7&quot; &quot;$8}&apos; release-info.txt`
+`sed -i -e &quot;s/${Previous}/${Current}/&quot; release-info.txt`
+
+echo &quot;Updating the release version in the release-info.txt file&quot;
+last_rel=`awk &apos;FNR == 6 {print $2}&apos; release-info.txt | cut -d &apos;.&apos; -f 3`
+rel=&quot;$((last_rel + 1))&quot;
+sed -i -e &quot;s/1_0_${last_rel}*/1_0_${rel}/g&quot; -e &quot;s/1.0.${last_rel}/1.0.${rel}/g&quot; release-info.txt
+
+git add release-info.txt
+git commit -m &quot;adding latest file&quot;
+
+
+cd ..
+cp -r Hello/* .
+chmod 777 HelloDeploy.sh
+echo &quot;For creating zip file with the version name&quot;
+#Temp1=`awk &apos;FNR == 6 {print $2}&apos; release-info.txt`
+Temp1=`awk &apos;FNR == 6 {print $2}&apos; release-info.txt | cut -d &quot;.&quot; -f 1,2,3 --output-delimiter=&apos;_&apos;`
+echo value1=${Temp1} &gt;&gt; osb.property
+
+
+echo &quot;Selecting the last fields of the source code file&quot;
+Temp2=`find . -name Hello_Osb* | cut -d &quot;_&quot; -f 3,4,5`
+echo value2=${Temp2} &gt;&gt; osb.property
+
+
+
+echo password=${pass} &gt; secret.property
+
+</command>
+    </hudson.tasks.Shell>
+    <EnvInjectBuilder plugin="envinject@2.0">
+      <info>
+        <propertiesFilePath>osb.property</propertiesFilePath>
+      </info>
+    </EnvInjectBuilder>
+    <EnvInjectBuilder plugin="envinject@2.0">
+      <info>
+        <propertiesFilePath>secret.property</propertiesFilePath>
+      </info>
+    </EnvInjectBuilder>
+    <hudson.tasks.Maven>
+      <targets>compile</targets>
+      <mavenName>MAVEN_HOME</mavenName>
+      <pom>pom.xml</pom>
+      <properties>zip_name=${value1}
+file_name=${value2}</properties>
+      <usePrivateRepository>false</usePrivateRepository>
+      <settings class="jenkins.mvn.DefaultSettingsProvider"/>
+      <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+      <injectBuildVariables>false</injectBuildVariables>
+    </hudson.tasks.Maven>
+    <hudson.tasks.Shell>
+      <command>#ech hello
+
+echo &quot;Copy the zip and deploy script to the goto server&quot;
+sshpass -p &quot;${password}&quot; scp -pr Hello_Osb_release_${value1}.zip kamagp@goto.ref.o2.co.uk:/home/kamagp
+rm -rf secret.property
+sshpass -p &quot;${password}&quot; scp -pr HelloDeploy.sh kamagp@goto.ref.o2.co.uk:/home/kamagp
+
+echo &quot;From goto server copy the zip and deploy script to the colombes server&quot;
+sshpass -p &quot;${password}&quot; ssh -tt kamagp@goto.ref.o2.co.uk &quot;scp -pr /home/kamagp/HelloDeploy.sh kamagp@colombes:/home/kamagp&quot;
+sshpass -p &quot;${password}&quot; ssh -tt kamagp@goto.ref.o2.co.uk &quot;scp -pr /home/kamagp/Hello_Osb_release_${value1}.zip kamagp@colombes:/tmp&quot;
+
+echo &quot;Execute the deploy script&quot;
+sshpass -p &quot;${password}&quot; ssh -tt kamagp@goto.ref.o2.co.uk &quot;chmod 777 Hello_Osb_release_${value1}.zip&quot;
+sshpass -p &quot;${password}&quot; ssh -tt kamagp@goto.ref.o2.co.uk &quot;ssh -tt colombes &apos;./HelloDeploy.sh Hello_Osb_release_${value1}.zip&apos;&quot;
+
+
+rm -rf HelloDeploy.sh
+rm -rf Hello/HelloDeploy.sh
+
+#touch output log
+echo &quot;For amending the log into the output file&quot;
+curl -u admin:${Jenkins} http://192.168.2.57:8080/jenkins/view/Hello/job/Hello_Build_and_Deploy/${BUILD_ID}/consoleText &gt;build
+tail -60 build &gt;log</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.plugins.postbuildtask.PostbuildTask plugin="postbuild-task@1.8">
+      <tasks>
+        <hudson.plugins.postbuildtask.TaskProperties>
+          <logTexts>
+            <hudson.plugins.postbuildtask.LogProperties>
+              <logText>INSTALLED</logText>
+              <operator>OR</operator>
+            </hudson.plugins.postbuildtask.LogProperties>
+          </logTexts>
+          <EscalateStatus>true</EscalateStatus>
+          <RunIfJobSuccessful>false</RunIfJobSuccessful>
+          <script>echo &quot;updating buildmail.html&quot;&#xd;
+cd buildmail&#xd;
+chmod 777 buildmaildeploy.sh&#xd;
+cd ..&#xd;
+&#xd;
+sshpass -p &quot;${password}&quot; scp -pr buildmail kamagp@goto.ref.o2.co.uk:/home/kamagp&#xd;
+&#xd;
+sshpass -p &quot;${password}&quot; ssh -tt kamagp@goto.ref.o2.co.uk &quot;scp -pr /home/kamagp/buildmail/* kamagp@lyon:/home/kamagp&quot;&#xd;
+&#xd;
+sshpass -p &quot;${password}&quot; ssh -tt kamagp@goto.ref.o2.co.uk &quot;ssh -tt lyon &apos;./buildmaildeploy.sh&apos;&quot;</script>
+        </hudson.plugins.postbuildtask.TaskProperties>
+        <hudson.plugins.postbuildtask.TaskProperties>
+          <logTexts>
+            <hudson.plugins.postbuildtask.LogProperties>
+              <logText>Error</logText>
+              <operator>OR</operator>
+            </hudson.plugins.postbuildtask.LogProperties>
+            <hudson.plugins.postbuildtask.LogProperties>
+              <logText>Exception</logText>
+              <operator>OR</operator>
+            </hudson.plugins.postbuildtask.LogProperties>
+            <hudson.plugins.postbuildtask.LogProperties>
+              <logText>error</logText>
+              <operator>OR</operator>
+            </hudson.plugins.postbuildtask.LogProperties>
+            <hudson.plugins.postbuildtask.LogProperties>
+              <logText>ERROR</logText>
+              <operator>OR</operator>
+            </hudson.plugins.postbuildtask.LogProperties>
+            <hudson.plugins.postbuildtask.LogProperties>
+              <logText>failure</logText>
+              <operator>OR</operator>
+            </hudson.plugins.postbuildtask.LogProperties>
+          </logTexts>
+          <EscalateStatus>true</EscalateStatus>
+          <RunIfJobSuccessful>false</RunIfJobSuccessful>
+          <script>echo &quot;copying deployfail to lyon server&quot;&#xd;
+cd deployfail&#xd;
+chmod 777 deployfail.sh&#xd;
+sed -i -e &quot;s/value/${BUILD_DISPLAY_NAME}/g&quot; deployfail.html&#xd;
+sed -i -e &quot;s/number/${BUILD_ID}/g&quot; deployfail.html&#xd;
+cd ..&#xd;
+&#xd;
+sshpass -p &quot;${password}&quot; scp -pr deployfail kamagp@goto.ref.o2.co.uk:/home/kamagp&#xd;
+&#xd;
+sshpass -p &quot;${password}&quot; ssh -tt kamagp@goto.ref.o2.co.uk &quot;scp -pr /home/kamagp/deployfail/* kamagp@lyon:/home/kamagp&quot;&#xd;
+&#xd;
+sshpass -p &quot;${password}&quot; ssh -tt kamagp@goto.ref.o2.co.uk &quot;ssh -tt lyon &apos;./deployfail.sh&apos;&quot;&#xd;
+&#xd;
+exit 1</script>
+        </hudson.plugins.postbuildtask.TaskProperties>
+      </tasks>
+    </hudson.plugins.postbuildtask.PostbuildTask>
+    <hudson.plugins.git.GitPublisher plugin="git@3.9.1">
+      <configVersion>2</configVersion>
+      <pushMerge>false</pushMerge>
+      <pushOnlyIfSuccess>true</pushOnlyIfSuccess>
+      <forcePush>false</forcePush>
+      <branchesToPush>
+        <hudson.plugins.git.GitPublisher_-BranchToPush>
+          <targetRepoName>origin</targetRepoName>
+          <branchName>master</branchName>
+        </hudson.plugins.git.GitPublisher_-BranchToPush>
+      </branchesToPush>
+    </hudson.plugins.git.GitPublisher>
+    <hudson.plugins.parameterizedtrigger.BuildTrigger plugin="parameterized-trigger@2.35.2">
+      <configs>
+        <hudson.plugins.parameterizedtrigger.BuildTriggerConfig>
+          <configs>
+            <hudson.plugins.parameterizedtrigger.FileBuildParameters>
+              <propertiesFile>osb.property</propertiesFile>
+              <failTriggerOnMissing>false</failTriggerOnMissing>
+              <textParamValueOnNewLine>false</textParamValueOnNewLine>
+              <useMatrixChild>false</useMatrixChild>
+              <onlyExactRuns>false</onlyExactRuns>
+            </hudson.plugins.parameterizedtrigger.FileBuildParameters>
+          </configs>
+          <projects>Hello_Version_Save</projects>
+          <condition>SUCCESS</condition>
+          <triggerWithNoParameters>false</triggerWithNoParameters>
+          <triggerFromChildProjects>false</triggerFromChildProjects>
+        </hudson.plugins.parameterizedtrigger.BuildTriggerConfig>
+      </configs>
+    </hudson.plugins.parameterizedtrigger.BuildTrigger>
+  </publishers>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.36">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+      <externalDelete></externalDelete>
+      <disableDeferredWipeout>false</disableDeferredWipeout>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+    <EnvInjectPasswordWrapper plugin="envinject@2.0">
+      <injectGlobalPasswords>true</injectGlobalPasswords>
+      <maskPasswordParameters>true</maskPasswordParameters>
+      <passwordEntries>
+        <EnvInjectPasswordEntry>
+          <name>pass</name>
+          <value>{AQAAABAAAAAQPsegrozC5lW5OQcWPb/MUeI7oL6+GsZO8ICQly06jc8=}</value>
+        </EnvInjectPasswordEntry>
+        <EnvInjectPasswordEntry>
+          <name>Jenkins</name>
+          <value>{AQAAABAAAAAQgcXfbssLQRU/mstXwrLLLwLCCks4yYxidsaFPkA0E+c=}</value>
+        </EnvInjectPasswordEntry>
+      </passwordEntries>
+    </EnvInjectPasswordWrapper>
+  </buildWrappers>
+</project>

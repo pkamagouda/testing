@@ -1,0 +1,9 @@
+Started by user [8mha:////4FHcU5I2etDPgUld/d6aTCyOnwrknvgzOTluF5JftG6EAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/cts1/.jenkins/workspace/date
+[date] $ /bin/sh -xe /tmp/jenkins8396905325217707064.sh
++ date
++ Temp=Wed Oct 24 16:01:51 IST 2018
+/tmp/jenkins8396905325217707064.sh: 1: /tmp/jenkins8396905325217707064.sh: Syntax error: Unterminated quoted string
+Build step 'Execute shell' marked build as failure
+Finished: FAILURE

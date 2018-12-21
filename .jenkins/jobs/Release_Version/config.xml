@@ -1,0 +1,119 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>release_version</name>
+          <description></description>
+          <defaultValue>3_0</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>version_dot</name>
+          <description></description>
+          <defaultValue>3.0</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.9.1">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/pkamagouda/testing.git</url>
+        <credentialsId>1ccb2e10-e0ee-473a-a4a8-2a7f00ff9a9a</credentialsId>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>cp -r /home/cts1/.jenkins/workspace/Manage_Order_Dev_1/* .
+cd ManageOrder
+
+echo &quot;Updating the release version in the release-info.txt file&quot;
+last_rel=`awk &apos;FNR == 6 {print $2}&apos; release-info.txt | cut -d &apos;.&apos; -f 3`
+rel=&quot;$((last_rel + 1))&quot;
+sed -i -e &quot;s/${release_version}_${last_rel}*/${release_version}_${rel}/g&quot; -e &quot;s/${version_dot}.${last_rel}/${version_dot}.${rel}/g&quot; release-info.txt
+
+git add -u release-info.txt
+git status
+git commit -m &quot;adding latest file&quot;
+
+
+cd ..
+cp -r ManageOrder/* .
+echo &quot;For creating zip file with the version name&quot;
+Temp1=`awk &apos;FNR == 6 {print $2}&apos; release-info.txt`
+echo value1=${Temp1} &gt; osb.property
+
+version=`echo ${release_version} | cut -d &quot;_&quot; -f 1`
+if [ &quot;${version}&quot; -eq 2 ];then
+echo &quot;Selecting the last fields of the source code file&quot;
+Temp2=`find . -name ManageOrder_Osb_2_* | cut -d &quot;_&quot; -f 3,4,5`
+echo value2=${Temp2} &gt; osb1.property
+
+else
+echo &quot;Selecting the last fields of the source code file&quot;
+Temp2=`find . -name ManageOrder_Osb_3_* | cut -d &quot;_&quot; -f 3,4,5`
+echo value2=${Temp2} &gt; osb1.property
+
+fi
+
+#echo password=${pass} &gt; secret.property</command>
+    </hudson.tasks.Shell>
+    <EnvInjectBuilder plugin="envinject@2.0">
+      <info>
+        <propertiesFilePath>osb.property</propertiesFilePath>
+      </info>
+    </EnvInjectBuilder>
+    <EnvInjectBuilder plugin="envinject@2.0">
+      <info>
+        <propertiesFilePath>osb1.property</propertiesFilePath>
+      </info>
+    </EnvInjectBuilder>
+    <hudson.tasks.Maven>
+      <targets>compile</targets>
+      <mavenName>MAVEN_HOME</mavenName>
+      <pom>pom.xml</pom>
+      <properties>zip_name=${value1}
+file_name=${value2}</properties>
+      <usePrivateRepository>false</usePrivateRepository>
+      <settings class="jenkins.mvn.DefaultSettingsProvider"/>
+      <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+      <injectBuildVariables>false</injectBuildVariables>
+    </hudson.tasks.Maven>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.36">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+      <externalDelete></externalDelete>
+      <disableDeferredWipeout>false</disableDeferredWipeout>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+    <EnvInjectPasswordWrapper plugin="envinject@2.0">
+      <injectGlobalPasswords>false</injectGlobalPasswords>
+      <maskPasswordParameters>false</maskPasswordParameters>
+      <passwordEntries/>
+    </EnvInjectPasswordWrapper>
+  </buildWrappers>
+</project>

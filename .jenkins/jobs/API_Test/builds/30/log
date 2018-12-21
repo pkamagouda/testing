@@ -1,0 +1,13 @@
+Started by user [8mha:////4FHcU5I2etDPgUld/d6aTCyOnwrknvgzOTluF5JftG6EAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/cts1/.jenkins/workspace/API_Test
+[API_Test] $ /bin/sh -xe /tmp/jenkins2313908992991502310.sh
++ /home/cts1/.jenkins/workspace/API_Test/apic login --username prafullk --password Temp12$$ --server mgmt.test1manager.apico2r53.co.uk --realm provider/default-idp-2
+Logged into mgmt.test1manager.apico2r53.co.uk successfully
++ /home/cts1/.jenkins/workspace/API_Test/apic config:set catalog=https://mgmt.test1manager.apico2r53.co.uk/api/catalogs/o2apic/qa-catalog
+catalog: https://mgmt.test1manager.apico2r53.co.uk/api/catalogs/o2apic/qa-catalog
++ /home/cts1/.jenkins/workspace/API_Test/apic create:product --title product-devops --apis o2apic-novum-eventnamecharges_1.0.0.yaml
+Created product-devops.yaml product definition [product-devops:1.0.0]
++ /home/cts1/.jenkins/workspace/API_Test/apic products:publish /home/cts1/.jenkins/workspace/API_Test/product-devops.yaml
+product-devops:1.0.0   https://mgmt.test1manager.apico2r53.co.uk/api/catalogs/fc36fc4a-4099-41d4-9294-baa0c93a23ae/3727a8fa-41d7-4fa5-8845-4269f85c0ac5/products/87be34d1-3b66-4f8a-b097-0c5549865d2e   
+Finished: SUCCESS

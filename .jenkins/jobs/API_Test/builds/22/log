@@ -1,0 +1,36 @@
+Started by user [8mha:////4FHcU5I2etDPgUld/d6aTCyOnwrknvgzOTluF5JftG6EAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/cts1/.jenkins/workspace/API_Test
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
+[API_Test] $ /bin/sh -xe /tmp/jenkins7980157947915228562.sh
++ cp -r ../o2apic-novum-eventnamecharges_1.0.0.yaml .
++ /home/cts1/.jenkins/workspace/apic login --username prafullk --password Temp12$$ --server mgmt.test1manager.apico2r53.co.uk --realm provider/default-idp-2
+Logged into mgmt.test1manager.apico2r53.co.uk successfully
++ /home/cts1/.jenkins/workspace/apic config:set catalog=https://mgmt.test1manager.apico2r53.co.uk/api/catalogs/o2apic/qa-catalog
+catalog: https://mgmt.test1manager.apico2r53.co.uk/api/catalogs/o2apic/qa-catalog
++ /home/cts1/.jenkins/workspace/apic create:product --title product-DevOps --apis o2apic-novum-eventnamecharges_1.0.0.yaml
+Created product-devops.yaml product definition [product-devops:1.0.0]
++ /home/cts1/.jenkins/workspace/apic products:publish /home/cts1/.jenkins/workspace/API_Test/product-DevOps.yaml
+Error: stat /home/cts1/.jenkins/workspace/API_Test/product-DevOps.yaml: no such file or directory
+Usage: apic products:publish [flags] PRODUCTS_FILE
+
+Publish the product
+
+Flags:
+  -c, --catalog string            Catalog name or id (required)
+      --format string             Output format. One of [json yaml go-template=... go-template-file=...], defaults to yaml.
+      --gateway_services string   The list of gateway service names to support partial publishing
+  -o, --org string                Organization name or id (required)
+      --output string             Write file(s) to directory, instead of STDOUT (default "-")
+  -s, --server string             management server endpoint (required)
+
+Type "apic [command] --help" for help on the following related commands:
+      apic products:publish  --scope space
+      apic products:publish  --stage
+      apic products:publish  --stage --scope space
+
+
+Build step 'Execute shell' marked build as failure
+Finished: FAILURE

@@ -1,0 +1,37 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>#telnet mgmt.test1manager.apico2r53.co.uk 443
+#cp -r ../routes.yaml .
+#cp -r ../product-route.yaml .
+#/home/cts1/Downloads/apic products:publish --server mgmt.test1manager.apico2r53.co.uk product-route.yaml
+
+
+
+#cp -r ../o2apic-novum-eventnamecharges_1.0.0.yaml .
+#cp -r ../apic .
+#cp -r ../api_designer-win.exe .
+#chmod 777 apic
+var=Product-Devops
+/home/cts1/.jenkins/workspace/API_Test/apic login --username &apos;prafullk&apos; --password &apos;Temp12$$&apos; --server mgmt.test1manager.apico2r53.co.uk  --realm provider/default-idp-2
+/home/cts1/.jenkins/workspace/API_Test/apic config:set catalog=https://mgmt.test1manager.apico2r53.co.uk/api/catalogs/o2apic/qa-catalog
+/home/cts1/.jenkins/workspace/API_Test/apic create:product --title ${var} --apis o2apic-novum-eventnamecharges_1.0.0.yaml
+/home/cts1/.jenkins/workspace/API_Test/apic products:publish /home/cts1/.jenkins/workspace/API_Test/ProductDevops.yaml
+</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

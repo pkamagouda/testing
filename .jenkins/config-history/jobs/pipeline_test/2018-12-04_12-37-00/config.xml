@@ -1,0 +1,58 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@2.25">
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
+      <triggers>
+        <com.cloudbees.jenkins.GitHubPushTrigger plugin="github@1.29.3">
+          <spec></spec>
+        </com.cloudbees.jenkins.GitHubPushTrigger>
+        <hudson.triggers.SCMTrigger>
+          <spec>* * * * *</spec>
+          <ignorePostCommitHooks>false</ignorePostCommitHooks>
+        </hudson.triggers.SCMTrigger>
+      </triggers>
+    </org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
+  </properties>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.59">
+    <script>node(){
+    stage(&apos;File_Creation&apos;){
+        writeFile file: &apos;hello&apos;, text: &apos;hi&apos;
+    }
+    
+    stage(&apos;Clone_Pipeline&apos;){
+        dir(&apos;first&apos;){
+        git branch: &apos;master&apos;,
+            credentialsId: &apos;1ccb2e10-e0ee-473a-a4a8-2a7f00ff9a9a&apos;,
+            url: &apos;https://github.com/pkamagouda/pipeline.git&apos;
+        }
+    }
+    
+    stage(&apos;Clone_testing&apos;){
+        dir(&apos;second&apos;){
+        git branch: &apos;master&apos;,
+            credentialsId: &apos;1ccb2e10-e0ee-473a-a4a8-2a7f00ff9a9a&apos;,
+            url: &apos;https://github.com/pkamagouda/testing.git&apos;
+        }
+    }
+    
+    stage(&apos;shell_commands&apos;){
+        sh(&apos;ls&apos;)
+        sh(&apos;pwd&apos;)
+        sh(&apos;cd first&apos;)
+        sh(&apos;ls&apos;)
+    }
+    
+    
+}
+
+
+
+</script>
+    <sandbox>false</sandbox>
+  </definition>
+  <triggers/>
+  <disabled>false</disabled>
+</flow-definition>

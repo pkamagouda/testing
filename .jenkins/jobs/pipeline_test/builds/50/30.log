@@ -1,0 +1,5 @@
+[second] Running shell script
++ git commit -m s8 adding
+[scm afc6867] s8 adding
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 s8

@@ -1,0 +1,21 @@
+Started by user [8mha:////4FHcU5I2etDPgUld/d6aTCyOnwrknvgzOTluF5JftG6EAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/cts1/.jenkins/workspace/test
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
+[test] $ /bin/sh -xe /tmp/jenkins3269618183785759014.sh
++ echo hello
+hello
+Performing Post build task...
+Match found for :hello : True
+Logical operation result is TRUE
+Running script  : cp -r ${WORKSPACE}/builds/${BUILD_ID}/log/* text
+[test] $ /bin/sh -xe /tmp/jenkins8601853244822140062.sh
++ cp -r /home/cts1/.jenkins/workspace/test/builds/28/log/* text
+cp: cannot stat '/home/cts1/.jenkins/workspace/test/builds/28/log/*': No such file or directory
+POST BUILD TASK : FAILURE
+END OF POST BUILD TASK : 0
+ESCALATE FAILED POST BUILD TASK TO JOB STATUS
+Build step 'Post build task' changed build result to FAILURE
+Finished: FAILURE

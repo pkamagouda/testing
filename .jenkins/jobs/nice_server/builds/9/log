@@ -1,0 +1,110 @@
+Started by user [8mha:////4FHcU5I2etDPgUld/d6aTCyOnwrknvgzOTluF5JftG6EAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/cts1/.jenkins/workspace/nice_server
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
+Cloning the remote Git repository
+Cloning repository https://github.com/pkamagouda/Test_O2.git
+ > git init /home/cts1/.jenkins/workspace/nice_server # timeout=10
+Fetching upstream changes from https://github.com/pkamagouda/Test_O2.git
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/pkamagouda/Test_O2.git +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/pkamagouda/Test_O2.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/pkamagouda/Test_O2.git # timeout=10
+Fetching upstream changes from https://github.com/pkamagouda/Test_O2.git
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/pkamagouda/Test_O2.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision aeae903c09b7c027f9851b204762e58deec3cd93 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f aeae903c09b7c027f9851b204762e58deec3cd93
+Commit message: "Adding mail.html file"
+ > git rev-list --no-walk aeae903c09b7c027f9851b204762e58deec3cd93 # timeout=10
+[EnvInject] - Inject global passwords.
+[EnvInject] - Mask passwords that will be passed as build parameters.
+[nice_server] $ /bin/sh -xe /tmp/jenkins8957136031341179872.sh
++ cp -r /home/cts1/.jenkins/workspace/Hello_Git_Pull/Hello /home/cts1/.jenkins/workspace/Hello_Git_Pull/Hello_1_0 /home/cts1/.jenkins/workspace/Hello_Git_Pull/Hello_1_1 /home/cts1/.jenkins/workspace/Hello_Git_Pull/Hello_Osb_1_0 /home/cts1/.jenkins/workspace/Hello_Git_Pull/Osb-Hello_1_0 .
++ cp -r /home/cts1/Desktop/buildmail .
++ cp -r /home/cts1/Desktop/deployfail .
++ cd Hello
++ echo Updating the build date in the release-info.txt file
+Updating the build date in the release-info.txt file
++ date
++ Current=Wed Oct 31 11:51:08 IST 2018
++ awk FNR==8 {print $3" "$4" "$5" "$6" "$7" "$8} release-info.txt
++ Previous=Mon Oct 29 18:33:03 IST 2018
++ sed -i -e s/Mon Oct 29 18:33:03 IST 2018/Wed Oct 31 11:51:08 IST 2018/ release-info.txt
++ 
++ echo Updating the release version in the release-info.txt file
+Updating the release version in the release-info.txt file
++ awk FNR == 6 {print $2} release-info.txt
++ cut -d . -f 3
++ last_rel=37
++ rel=38
++ sed -i -e s/1_0_37*/1_0_38/g -e s/1.0.37/1.0.38/g release-info.txt
++ git add release-info.txt
++ git commit -m adding latest file
+[detached HEAD 2d05859] adding latest file
+ 1 file changed, 9 insertions(+), 9 deletions(-)
++ cd ..
++ cp -r Hello/Hello Hello/HelloDeploy.sh Hello/build.xml Hello/mail.html Hello/output Hello/pom.xml Hello/release-info.txt .
++ chmod 777 HelloDeploy.sh
++ echo For creating zip file with the version name
+For creating zip file with the version name
++ awk FNR == 6 {print $2} release-info.txt
++ cut -d . -f 1,2,3 --output-delimiter=_
++ Temp1=1_0_38
++ echo value1=1_0_38
++ echo Selecting the last fields of the source code file
+Selecting the last fields of the source code file
++ + find . -name Hello_Osb_1_0
+cut -d _ -f 3,4,5
++ Temp2=1_0
++ echo value2=1_0
++ awk FNR == 6 {print $2} release-info.txt
++ cut -d . -f 1,2,3 --output-delimiter=_
++ Temp3=1_0_38
++ pwd
+/home/cts1/.jenkins/workspace/nice_server
++ echo updating buildmail.html
+updating buildmail.html
++ cd buildmail
++ sed -i -e s/version/1_0_38/g buildmail.html
++ sshpass -p [*******] scp -pr buildmail kamagp@goto.ref.o2.co.uk:/home/kamagp
+
+|-----------------------------------------------------------------|
+| This system is for the use of authorized users only.            |
+| Individuals using this computer system without authority, or in |
+| excess of their authority, are subject to having all of their   |
+| activities on this system monitored and recorded by system      |
+| personnel.                                                      |
+|                                                                 |
+| In the course of monitoring individuals improperly using this   |
+| system, or in the course of system maintenance, the activities  |
+| of authorized users may also be monitored.                      |
+|                                                                 |
+| Anyone using this system expressly consents to such monitoring  |
+| and is advised that if such monitoring reveals possible         |
+| evidence of criminal activity, system personnel may provide the |
+| evidence of such monitoring to law enforcement officials.       |
+|-----------------------------------------------------------------|
+buildmail: No such file or directory
+Build step 'Execute shell' marked build as failure
+Performing Post build task...
+Could not match :INSTALLED  : False
+Logical operation result is FALSE
+Skipping script  : sshpass -p "${password}" ssh -tt kamagp@goto.ref.o2.co.uk "ssh -tt nice './buildmaildeploy.sh'"
+END OF POST BUILD TASK 	: 0
+Could not match :Error  : False
+Could not match :Exception  : False
+Could not match :error  : False
+Could not match :ERROR  : False
+Logical operation result is FALSE
+Skipping script  : sshpass -p "${password}" ssh -tt kamagp@goto.ref.o2.co.uk "ssh -tt nice './deployfail.sh'"
+exit 1
+END OF POST BUILD TASK 	: 1
+Finished: FAILURE

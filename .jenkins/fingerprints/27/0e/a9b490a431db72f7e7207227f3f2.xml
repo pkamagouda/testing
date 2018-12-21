@@ -1,0 +1,13 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<fingerprint>
+  <timestamp>2018-10-24 05:59:48.54 UTC</timestamp>
+  <md5sum>270ea9b490a431db72f7e7207227f3f2</md5sum>
+  <fileName>Credential id=449d9962-9f70-499f-9d86-c78d9eb632d2 name=kumarir/******</fileName>
+  <usages>
+    <entry>
+      <string>Hello_Git_Pull</string>
+      <ranges>5-25</ranges>
+    </entry>
+  </usages>
+  <facets/>
+</fingerprint>

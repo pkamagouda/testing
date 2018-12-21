@@ -1,0 +1,5 @@
+[second] Running shell script
++ git commit -m l adding
+[scm 5b77b09] l adding
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 l

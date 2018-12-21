@@ -1,0 +1,79 @@
+Started by user [8mha:////4FHcU5I2etDPgUld/d6aTCyOnwrknvgzOTluF5JftG6EAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/cts1/.jenkins/workspace/Hello_Version_Save
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
+Cloning the remote Git repository
+Cloning repository https://github.com/pkamagouda/Test_O2.git
+ > git init /home/cts1/.jenkins/workspace/Hello_Version_Save # timeout=10
+Fetching upstream changes from https://github.com/pkamagouda/Test_O2.git
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/pkamagouda/Test_O2.git +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/pkamagouda/Test_O2.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/pkamagouda/Test_O2.git # timeout=10
+Fetching upstream changes from https://github.com/pkamagouda/Test_O2.git
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/pkamagouda/Test_O2.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/Hello_Code^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/Hello_Code^{commit} # timeout=10
+Checking out Revision ae6441f3174ab999a93a628a1b2fb4ba3fba42b8 (refs/remotes/origin/Hello_Code)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f ae6441f3174ab999a93a628a1b2fb4ba3fba42b8
+Commit message: "committing zip file"
+ > git rev-list --no-walk 3ab8efb77c37c5c33051f20bc939eb88ebecc651 # timeout=10
+[EnvInject] - Mask passwords that will be passed as build parameters.
+[Hello_Version_Save] $ /bin/sh -xe /home/cts1/tomcat/apache-tomcat-8.5.35/temp/jenkins2894226197919936393.sh
++ cp -r ../Hello_Build_and_Deploy/Hello_Osb_release_1_0_50.zip .
++ git add Hello_Osb_release_1_0_35.zip Hello_Osb_release_1_0_36.zip Hello_Osb_release_1_0_37.zip Hello_Osb_release_1_0_39.zip Hello_Osb_release_1_0_40.zip Hello_Osb_release_1_0_41.zip Hello_Osb_release_1_0_42.zip Hello_Osb_release_1_0_43.zip Hello_Osb_release_1_0_44.zip Hello_Osb_release_1_0_50.zip
++ git commit -m committing zip file
+HEAD detached at ae6441f
+nothing to commit, working directory clean
+Build step 'Execute shell' marked build as failure
+Build did not succeed and the project is configured to only push after a successful build, so no pushing will occur.
+Performing Post build task...
+Match found for :commit : True
+Logical operation result is TRUE
+Running script  : echo "updating savemail.html"
+cd savemail
+chmod 777 savemaildeploy.sh
+sed -i -e "s/version/${Temp2}/g" savemail.html
+cd ..
+
+sshpass -p "${password}" scp -pr savemail kamagp@goto.ref.o2.co.uk:/home/kamagp
+
+sshpass -p "${password}" ssh -tt kamagp@goto.ref.o2.co.uk "scp -pr /home/kamagp/savemail/* kamagp@lyon:/home/kamagp"
+
+sshpass -p "${password}" ssh -tt kamagp@goto.ref.o2.co.uk "ssh -tt lyon './savemaildeploy.sh'"
+[Hello_Version_Save] $ /bin/sh -xe /home/cts1/tomcat/apache-tomcat-8.5.35/temp/jenkins4163716461088126643.sh
++ echo updating savemail.html
+updating savemail.html
++ cd savemail
+/home/cts1/tomcat/apache-tomcat-8.5.35/temp/jenkins4163716461088126643.sh: 3: cd: can't cd to savemail
+POST BUILD TASK : FAILURE
+END OF POST BUILD TASK : 0
+ESCALATE FAILED POST BUILD TASK TO JOB STATUS
+Match found for :failure : True
+Could not match :Error  : False
+Could not match :error  : False
+Logical operation result is TRUE
+Running script  : echo "copying deployfail to nice server"
+cd savefail
+chmod 777 savefail.sh
+sed -i -e "s/value/${BUILD_DISPLAY_NAME}/g" savefail.html
+cd ..
+sshpass -p "${password}" scp -pr savefail kamagp@goto.ref.o2.co.uk:/home/kamagp
+sshpass -p "${password}" ssh -tt kamagp@goto.ref.o2.co.uk "scp -pr /home/kamagp/savefail/* kamagp@lyon:/home/kamagp"
+sshpass -p "${password}" ssh -tt kamagp@goto.ref.o2.co.uk "ssh -tt lyon './savefail.sh'"
+exit1
+[Hello_Version_Save] $ /bin/sh -xe /home/cts1/tomcat/apache-tomcat-8.5.35/temp/jenkins1630425529972338511.sh
++ echo copying deployfail to nice server
+copying deployfail to nice server
++ cd savefail
+/home/cts1/tomcat/apache-tomcat-8.5.35/temp/jenkins1630425529972338511.sh: 3: cd: can't cd to savefail
+POST BUILD TASK : FAILURE
+END OF POST BUILD TASK : 1
+ESCALATE FAILED POST BUILD TASK TO JOB STATUS
+Finished: FAILURE

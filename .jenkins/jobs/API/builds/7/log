@@ -1,0 +1,17 @@
+Started by an SCM change
+Started by an SCM change
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/cts1/.jenkins/workspace/API
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
+Cloning the remote Git repository
+Cloning repository https://github.com/O2IP/APIConnect.git
+ > git init /home/cts1/.jenkins/workspace/API # timeout=10
+Fetching upstream changes from https://github.com/O2IP/APIConnect.git
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/O2IP/APIConnect.git +refs/heads/*:refs/remotes/origin/*
+Build was aborted
+Aborted by [8mha:////4FHcU5I2etDPgUld/d6aTCyOnwrknvgzOTluF5JftG6EAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Finished: ABORTED

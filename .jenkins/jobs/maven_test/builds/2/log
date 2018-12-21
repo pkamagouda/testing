@@ -1,0 +1,25 @@
+Started by user [8mha:////4FHcU5I2etDPgUld/d6aTCyOnwrknvgzOTluF5JftG6EAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/cts1/.jenkins/workspace/maven_test
+[maven_test] $ /bin/sh -xe /home/cts1/tomcat/apache-tomcat-8.5.35/temp/jenkins925746173236741370.sh
++ cp -r /home/cts1/maven_testing/pom.xml /home/cts1/maven_testing/src .
+[maven_test] $ /usr/share/maven/bin/mvn -f pom.xml clean assembly:single
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building FSA 1.0.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[8mha:////4Kep8B2gfU3btKyJJ/nhpJGniZTfhDCapYwpznIwullXAAAAYB+LCAAAAAAAAP9b85aBtbiIQSmjNKU4P0+vJLE4u1gvPjexLDVPzxdEGvvmZ+X75ZekLlOVfvTjc8FPJgaGiiIGKaiG5Py84vycVD1nCA1SyAABjCCFBQCV27OjYAAAAA==[0m[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ FSA ---
+[INFO] 
+[8mha:////4Kep8B2gfU3btKyJJ/nhpJGniZTfhDCapYwpznIwullXAAAAYB+LCAAAAAAAAP9b85aBtbiIQSmjNKU4P0+vJLE4u1gvPjexLDVPzxdEGvvmZ+X75ZekLlOVfvTjc8FPJgaGiiIGKaiG5Py84vycVD1nCA1SyAABjCCFBQCV27OjYAAAAA==[0m[INFO] --- maven-assembly-plugin:2.6:single (default-cli) @ FSA ---
+[INFO] Reading assembly descriptor: src/main/assembly/zip.xml
+[INFO] Building tar: /home/cts1/.jenkins/workspace/maven_test/target/Hello_Osb.tar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1.408 s
+[INFO] Finished at: 2018-11-29T13:14:11+05:30
+[INFO] Final Memory: 11M/216M
+[INFO] ------------------------------------------------------------------------
+Finished: SUCCESS

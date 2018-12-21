@@ -1,0 +1,118 @@
+Started by user [8mha:////4FHcU5I2etDPgUld/d6aTCyOnwrknvgzOTluF5JftG6EAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/cts1/.jenkins/workspace/test
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
+Cloning the remote Git repository
+Cloning repository https://github.com/pkamagouda/Test_O2.git
+ > git init /home/cts1/.jenkins/workspace/test # timeout=10
+Fetching upstream changes from https://github.com/pkamagouda/Test_O2.git
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/pkamagouda/Test_O2.git +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/pkamagouda/Test_O2.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/pkamagouda/Test_O2.git # timeout=10
+Fetching upstream changes from https://github.com/pkamagouda/Test_O2.git
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/pkamagouda/Test_O2.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision 797069267c7c0cc44a8c3337fc91781f3891afcc (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 797069267c7c0cc44a8c3337fc91781f3891afcc
+Commit message: "adding latest file"
+ > git rev-list --no-walk 797069267c7c0cc44a8c3337fc91781f3891afcc # timeout=10
+[test] $ /bin/sh -xe /tmp/jenkins8722661343976276082.sh
++ cp -r /home/cts1/.jenkins/workspace/Hello_Git_Pull/Hello /home/cts1/.jenkins/workspace/Hello_Git_Pull/Hello_1_0 /home/cts1/.jenkins/workspace/Hello_Git_Pull/Hello_1_1 /home/cts1/.jenkins/workspace/Hello_Git_Pull/Hello_Osb_1_0 /home/cts1/.jenkins/workspace/Hello_Git_Pull/Osb-Hello_1_0 .
++ cd Hello
++ echo Updating the release version in the release-info.txt file
+Updating the release version in the release-info.txt file
++ cut -d . -f 3
++ awk FNR == 6 {print $2} release-info.txt
++ last_rel=24
++ rel=25
++ sed -i -e s/1_0_24*/1_0_25/g -e s/1.0.24/1.0.25/g release-info.txt
++ git add release-info.txt
++ git commit -m adding latest file
+[detached HEAD c6081c0] adding latest file
+ 1 file changed, 10 insertions(+), 10 deletions(-)
++ cd ..
++ cp -r Hello/Hello Hello/HelloDeploy.sh Hello/build.xml Hello/output Hello/pom.xml Hello/release-info.txt .
++ chmod 777 HelloDeploy.sh
++ echo For creating zip file with the version name
+For creating zip file with the version name
++ awk FNR == 6 {print $2} release-info.txt
++ Temp1=1.0.25
++ echo value1=1.0.25
++ echo password=
+[test] $ /bin/sh -xe /tmp/jenkins8984979905533584818.sh
++ echo Selecting the last fields of the source code file
+Selecting the last fields of the source code file
++ awk FNR == 6 {print $2} release-info.txt
++ Temp2=1.0.25
++ echo value2=1.0.25
+[EnvInject] - Injecting environment variables from a build step.
+[EnvInject] - Injecting as environment variables the properties file path 'osb1.property'
+[EnvInject] - Variables injected successfully.
+[EnvInject] - Injecting environment variables from a build step.
+[EnvInject] - Injecting as environment variables the properties file path 'osb.property'
+[EnvInject] - Variables injected successfully.
+[EnvInject] - Injecting environment variables from a build step.
+[EnvInject] - Injecting as environment variables the properties file path 'secret.property'
+[EnvInject] - Variables injected successfully.
+[test] $ /bin/sh -xe /tmp/jenkins8395216806018419812.sh
++ mvn -f pom.xml -Dfile_name= -Dzip_name=1.0.25 compile
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Telefonica 1.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ Telefonica ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /home/cts1/.jenkins/workspace/test/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.2:compile (default-compile) @ Telefonica ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.5:run (compile) @ Telefonica ---
+[INFO] Executing tasks
+
+main:
+
+zip_creation:
+     [copy] Copying 1 file to /home/cts1/.jenkins/workspace/test/Hello_Osb_
+      [zip] Building zip: /home/cts1/.jenkins/workspace/test/Hello_Osb_1.0.25.zip
+[INFO] Executed tasks
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2.915 s
+[INFO] Finished at: 2018-10-24T09:18:42+05:30
+[INFO] Final Memory: 9M/157M
+[INFO] ------------------------------------------------------------------------
++ echo Copy the zip and deploy script to the goto server
+Copy the zip and deploy script to the goto server
++ sshpass -p  scp -pr Hello_Osb_1.0.25.zip kamagp@goto.ref.o2.co.uk:/home/kamagp
+
+|-----------------------------------------------------------------|
+| This system is for the use of authorized users only.            |
+| Individuals using this computer system without authority, or in |
+| excess of their authority, are subject to having all of their   |
+| activities on this system monitored and recorded by system      |
+| personnel.                                                      |
+|                                                                 |
+| In the course of monitoring individuals improperly using this   |
+| system, or in the course of system maintenance, the activities  |
+| of authorized users may also be monitored.                      |
+|                                                                 |
+| Anyone using this system expressly consents to such monitoring  |
+| and is advised that if such monitoring reveals possible         |
+| evidence of criminal activity, system personnel may provide the |
+| evidence of such monitoring to law enforcement officials.       |
+|-----------------------------------------------------------------|
+Permission denied, please try again.
+Build step 'Execute shell' marked build as failure
+Finished: FAILURE

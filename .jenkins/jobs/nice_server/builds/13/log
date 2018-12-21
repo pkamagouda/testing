@@ -1,0 +1,50 @@
+Started by user [8mha:////4FHcU5I2etDPgUld/d6aTCyOnwrknvgzOTluF5JftG6EAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/cts1/.jenkins/workspace/nice_server
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
+Cloning the remote Git repository
+Cloning repository https://github.com/pkamagouda/Test_O2.git
+ > git init /home/cts1/.jenkins/workspace/nice_server # timeout=10
+Fetching upstream changes from https://github.com/pkamagouda/Test_O2.git
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/pkamagouda/Test_O2.git +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/pkamagouda/Test_O2.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/pkamagouda/Test_O2.git # timeout=10
+Fetching upstream changes from https://github.com/pkamagouda/Test_O2.git
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/pkamagouda/Test_O2.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision aeae903c09b7c027f9851b204762e58deec3cd93 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f aeae903c09b7c027f9851b204762e58deec3cd93
+Commit message: "Adding mail.html file"
+ > git rev-list --no-walk aeae903c09b7c027f9851b204762e58deec3cd93 # timeout=10
+[EnvInject] - Inject global passwords.
+[EnvInject] - Mask passwords that will be passed as build parameters.
+[nice_server] $ /bin/sh -xe /tmp/jenkins6978904040957284257.sh
++ cp -r /home/cts1/.jenkins/workspace/Hello_Git_Pull/Hello /home/cts1/.jenkins/workspace/Hello_Git_Pull/Hello_1_0 /home/cts1/.jenkins/workspace/Hello_Git_Pull/Hello_1_1 /home/cts1/.jenkins/workspace/Hello_Git_Pull/Hello_Osb_1_0 /home/cts1/.jenkins/workspace/Hello_Git_Pull/Osb-Hello_1_0 .
++ cp -r /home/cts1/Desktop/buildmail .
++ cp -r /home/cts1/Desktop/deployfail .
++ cp -r /home/cts1/Desktop/savemail .
++ ech hello
+/tmp/jenkins6978904040957284257.sh: 7: /tmp/jenkins6978904040957284257.sh: ech: not found
+Build step 'Execute shell' marked build as failure
+Performing Post build task...
+Could not match :INSTALLED  : False
+Logical operation result is FALSE
+Skipping script  : sshpass -p "${password}" ssh -tt kamagp@goto.ref.o2.co.uk "ssh -tt nice './savemaildeploy.sh'"
+END OF POST BUILD TASK 	: 0
+Could not match :Error  : False
+Could not match :Exception  : False
+Could not match :error  : False
+Could not match :ERROR  : False
+Logical operation result is FALSE
+Skipping script  : sshpass -p "${password}" ssh -tt kamagp@goto.ref.o2.co.uk "ssh -tt nice './deployfail.sh'"
+exit 1
+END OF POST BUILD TASK 	: 1
+Finished: FAILURE

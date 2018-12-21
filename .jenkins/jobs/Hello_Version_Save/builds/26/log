@@ -1,0 +1,45 @@
+Started by user [8mha:////4FHcU5I2etDPgUld/d6aTCyOnwrknvgzOTluF5JftG6EAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/cts1/.jenkins/workspace/Hello_Version_Save
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
+Cloning the remote Git repository
+Cloning repository https://github.com/pkamagouda/Test_O2.git
+ > git init /home/cts1/.jenkins/workspace/Hello_Version_Save # timeout=10
+Fetching upstream changes from https://github.com/pkamagouda/Test_O2.git
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/pkamagouda/Test_O2.git +refs/heads/*:refs/remotes/origin/*
+Build was aborted
+Aborted by [8mha:////4FHcU5I2etDPgUld/d6aTCyOnwrknvgzOTluF5JftG6EAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Performing Post build task...
+Could not match :commit  : False
+Logical operation result is FALSE
+Skipping script  : echo "updating savemail.html"
+cd savemail
+chmod 777 savemaildeploy.sh
+sed -i -e "s/version/${Temp2}/g" savemail.html
+cd ..
+
+sshpass -p "${password}" scp -pr savemail kamagp@goto.ref.o2.co.uk:/home/kamagp
+
+sshpass -p "${password}" ssh -tt kamagp@goto.ref.o2.co.uk "scp -pr /home/kamagp/savemail/* kamagp@lyon:/home/kamagp"
+
+sshpass -p "${password}" ssh -tt kamagp@goto.ref.o2.co.uk "ssh -tt lyon './savemaildeploy.sh'"
+END OF POST BUILD TASK 	: 0
+Could not match :failure  : False
+Could not match :Error  : False
+Could not match :error  : False
+Logical operation result is FALSE
+Skipping script  : echo "copying deployfail to nice server"
+cd savefail
+chmod 777 savefail.sh
+sed -i -e "s/value/${BUILD_DISPLAY_NAME}/g" savefail.html
+cd ..
+sshpass -p "${password}" scp -pr savefail kamagp@goto.ref.o2.co.uk:/home/kamagp
+sshpass -p "${password}" ssh -tt kamagp@goto.ref.o2.co.uk "scp -pr /home/kamagp/savefail/* kamagp@lyon:/home/kamagp"
+sshpass -p "${password}" ssh -tt kamagp@goto.ref.o2.co.uk "ssh -tt lyon './savefail.sh'"
+exit1
+END OF POST BUILD TASK 	: 1
+Finished: ABORTED

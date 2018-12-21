@@ -1,0 +1,3 @@
+[second] Running shell script
++ git checkout -b scm
+fatal: A branch named 'scm' already exists.

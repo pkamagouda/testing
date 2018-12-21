@@ -1,0 +1,17 @@
+Started by user [8mha:////4FHcU5I2etDPgUld/d6aTCyOnwrknvgzOTluF5JftG6EAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/cts1/.jenkins/workspace/date
+[date] $ /bin/sh -xe /tmp/jenkins8368760856909374245.sh
++ cp -r ../release-info.txt .
++ date
++ Current=Mon Oct 29 12:34:41 IST 2018
++ awk FNR==8 {print $3" "$4" "$5" "$6" "$7" "$8} release-info.txt
++ Previous=Fri Oct 26 15:04:43 IST 2018
++ sed -i -e s/Fri Oct 26 15:04:43 IST 2018/Mon Oct 29 12:34:41 IST 2018/ release-info.txt
++ 
++ awk FNR == 6 {print $2} release-info.txt
++ cut -d . -f 3
++ last_rel=35
++ rel=36
++ sed -i -e s/1_0_35*/1_0_36/g -e s/1.0.35/1.0.36/g -e s/Fri Oct 26 15:04:43 IST 2018/Mon Oct 29 12:34:41 IST 2018/ release-info.txt
+Finished: SUCCESS

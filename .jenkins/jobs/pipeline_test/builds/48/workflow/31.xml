@@ -1,0 +1,25 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<Tag plugin="workflow-support@2.21">
+  <node class="cps.n.StepAtomNode" plugin="workflow-cps@2.59">
+    <parentIds>
+      <string>30</string>
+    </parentIds>
+    <id>31</id>
+    <descriptorId>org.jenkinsci.plugins.workflow.steps.durable_task.ShellStep</descriptorId>
+  </node>
+  <actions>
+    <cps.a.ArgumentsActionImpl plugin="workflow-cps@2.59">
+      <arguments>
+        <entry>
+          <string>script</string>
+          <string>git commit -m &quot;s6 adding&quot;</string>
+        </entry>
+      </arguments>
+      <isUnmodifiedBySanitization>true</isUnmodifiedBySanitization>
+    </cps.a.ArgumentsActionImpl>
+    <wf.a.TimingAction plugin="workflow-api@2.30">
+      <startTime>1543922698621</startTime>
+    </wf.a.TimingAction>
+    <s.a.LogActionImpl/>
+  </actions>
+</Tag>

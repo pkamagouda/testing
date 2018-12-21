@@ -1,0 +1,180 @@
+Started by upstream project "[8mha:////4ImcPvWHsL7hiIKY0H6ZMv+U5o5MAx4rOjvR/39C/uerAAAAqB+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyxEgYZ/az8JH2P1Jyc/Hin0syclPjEvJR4l9SCnPxKfQBYyGAE0QAAAA==[0mHello_Build_and_Deploy" build number [8mha:////4HYcwQDzsXLcx5ASsmfVfI/P0jcK/1t4kojOHSV7tdwMAAAAqh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAymEgY5/az8JH2P1Jyc/Hin0syclPjEvJR4l9SCnPxKfTMTAFhi3KTTAAAA[0m64
+originally caused by:
+ Started by upstream project "[8mha:////4OMpodbfRwcBx9eG5lYqgctLv/P3m7xkMnkk1G7nDoUUAAAAoB+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAy+EgYR/az8JH2P1Jyc/Hj3zJL4gNKcHH0ARBYDHckAAAA=[0mHello_Git_Pull" build number [8mha:////4Hoiy/ffW17K4811TogNKjttAfl8SVhnP8rg1CBoc4eCAAAAoh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAymEgYx/az8JH2P1Jyc/Hj3zJL4gNKcHH1jCwCJhVpvywAAAA==[0m38
+ originally caused by:
+  Started by user [8mha:////4FHcU5I2etDPgUld/d6aTCyOnwrknvgzOTluF5JftG6EAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/cts1/.jenkins/workspace/Hello_Version_Save
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
+Cloning the remote Git repository
+Cloning repository https://github.com/pkamagouda/Test_O2.git
+ > git init /home/cts1/.jenkins/workspace/Hello_Version_Save # timeout=10
+Fetching upstream changes from https://github.com/pkamagouda/Test_O2.git
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/pkamagouda/Test_O2.git +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/pkamagouda/Test_O2.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/pkamagouda/Test_O2.git # timeout=10
+Fetching upstream changes from https://github.com/pkamagouda/Test_O2.git
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/pkamagouda/Test_O2.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/Hello_Code^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/Hello_Code^{commit} # timeout=10
+Checking out Revision f53cec0904b4a2e1a57ebe14f76f47dd55d16aae (refs/remotes/origin/Hello_Code)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f f53cec0904b4a2e1a57ebe14f76f47dd55d16aae
+Commit message: "committing zip file"
+ > git rev-list --no-walk ae6441f3174ab999a93a628a1b2fb4ba3fba42b8 # timeout=10
+[EnvInject] - Mask passwords that will be passed as build parameters.
+[Hello_Version_Save] $ /bin/sh -xe /home/cts1/tomcat/apache-tomcat-8.5.35/temp/jenkins2573810188178961827.sh
++ cp -r ../Hello_Build_and_Deploy/Hello_Osb_release_1_0_53.zip .
++ git add Hello_Osb_release_1_0_35.zip Hello_Osb_release_1_0_36.zip Hello_Osb_release_1_0_37.zip Hello_Osb_release_1_0_39.zip Hello_Osb_release_1_0_40.zip Hello_Osb_release_1_0_41.zip Hello_Osb_release_1_0_42.zip Hello_Osb_release_1_0_43.zip Hello_Osb_release_1_0_44.zip Hello_Osb_release_1_0_50.zip Hello_Osb_release_1_0_51.zip Hello_Osb_release_1_0_53.zip
++ git commit -m committing zip file
+[detached HEAD 45ef798] committing zip file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 Hello_Osb_release_1_0_53.zip
++ echo Copying the required file from the workspace of build and deply job
+Copying the required file from the workspace of build and deply job
++ cp -r ../Hello_Build_and_Deploy/savemail .
++ cp -r ../Hello_Build_and_Deploy/savefail .
++ cp -r ../Hello_Build_and_Deploy/release-info.txt .
++ awk FNR == 6 {print $2} release-info.txt
++ cut -d . -f 1,2,3 --output-delimiter=_
++ Temp1=1_0_53
++ echo Temp2=1_0_53
++ echo password=[*******]
+[EnvInject] - Injecting environment variables from a build step.
+[EnvInject] - Injecting as environment variables the properties file path 'secret.property'
+[EnvInject] - Variables injected successfully.
+[EnvInject] - Injecting environment variables from a build step.
+[EnvInject] - Injecting as environment variables the properties file path 'zip.property'
+[EnvInject] - Variables injected successfully.
+Pushing HEAD to branch Hello_Code at repo origin
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > git push https://github.com/pkamagouda/Test_O2.git HEAD:Hello_Code
+Performing Post build task...
+Match found for :commit : True
+Logical operation result is TRUE
+Running script  : echo "updating savemail.html"
+cd savemail
+chmod 777 savemaildeploy.sh
+sed -i -e "s/version/${Temp2}/g" savemail.html
+cd ..
+
+sshpass -p "${password}" scp -pr savemail kamagp@goto.ref.o2.co.uk:/home/kamagp
+
+sshpass -p "${password}" ssh -tt kamagp@goto.ref.o2.co.uk "scp -pr /home/kamagp/savemail/* kamagp@lyon:/home/kamagp"
+
+sshpass -p "${password}" ssh -tt kamagp@goto.ref.o2.co.uk "ssh -tt lyon './savemaildeploy.sh'"
+[Hello_Version_Save] $ /bin/sh -xe /home/cts1/tomcat/apache-tomcat-8.5.35/temp/jenkins3519954907694615177.sh
++ echo updating savemail.html
+updating savemail.html
++ cd savemail
++ chmod 777 savemaildeploy.sh
++ sed -i -e s/version/1_0_53/g savemail.html
++ cd ..
++ sshpass -p [*******] scp -pr savemail kamagp@goto.ref.o2.co.uk:/home/kamagp
+
+|-----------------------------------------------------------------|
+| This system is for the use of authorized users only.            |
+| Individuals using this computer system without authority, or in |
+| excess of their authority, are subject to having all of their   |
+| activities on this system monitored and recorded by system      |
+| personnel.                                                      |
+|                                                                 |
+| In the course of monitoring individuals improperly using this   |
+| system, or in the course of system maintenance, the activities  |
+| of authorized users may also be monitored.                      |
+|                                                                 |
+| Anyone using this system expressly consents to such monitoring  |
+| and is advised that if such monitoring reveals possible         |
+| evidence of criminal activity, system personnel may provide the |
+| evidence of such monitoring to law enforcement officials.       |
+|-----------------------------------------------------------------|
++ sshpass -p [*******] ssh -tt kamagp@goto.ref.o2.co.uk scp -pr /home/kamagp/savemail/* kamagp@lyon:/home/kamagp
+
+|-----------------------------------------------------------------|
+| This system is for the use of authorized users only.            |
+| Individuals using this computer system without authority, or in |
+| excess of their authority, are subject to having all of their   |
+| activities on this system monitored and recorded by system      |
+| personnel.                                                      |
+|                                                                 |
+| In the course of monitoring individuals improperly using this   |
+| system, or in the course of system maintenance, the activities  |
+| of authorized users may also be monitored.                      |
+|                                                                 |
+| Anyone using this system expressly consents to such monitoring  |
+| and is advised that if such monitoring reveals possible         |
+| evidence of criminal activity, system personnel may provide the |
+| evidence of such monitoring to law enforcement officials.       |
+|-----------------------------------------------------------------|
+
+                 This system is a restricted access system,
+ and as such ONLY personnel authorised by Telef�nica may access the equipment.
+
+            All activity on this system is subject to monitoring.
+
+ If information collected reveals possible criminal activity or activity that
+     exceeds privileges, evidence of such activity may be provided to the
+                   relevant authorities for further action.
+
+   By continuing past this point you expressly consent to this monitoring.
+
+savemail.html                                   0%    0     0.0KB/s   --:-- ETAsavemail.html                                 100%  828     1.7MB/s   00:00    
+savemaildeploy.sh                               0%    0     0.0KB/s   --:-- ETAsavemaildeploy.sh                             100%   57   111.5KB/s   00:00    
+savemailheader                                  0%    0     0.0KB/s   --:-- ETAsavemailheader                                100%  194   378.9KB/s   00:00    
+Connection to goto.ref.o2.co.uk closed.
++ sshpass -p [*******] ssh -tt kamagp@goto.ref.o2.co.uk ssh -tt lyon './savemaildeploy.sh'
+
+|-----------------------------------------------------------------|
+| This system is for the use of authorized users only.            |
+| Individuals using this computer system without authority, or in |
+| excess of their authority, are subject to having all of their   |
+| activities on this system monitored and recorded by system      |
+| personnel.                                                      |
+|                                                                 |
+| In the course of monitoring individuals improperly using this   |
+| system, or in the course of system maintenance, the activities  |
+| of authorized users may also be monitored.                      |
+|                                                                 |
+| Anyone using this system expressly consents to such monitoring  |
+| and is advised that if such monitoring reveals possible         |
+| evidence of criminal activity, system personnel may provide the |
+| evidence of such monitoring to law enforcement officials.       |
+|-----------------------------------------------------------------|
+
+                 This system is a restricted access system,
+ and as such ONLY personnel authorised by Telef�nica may access the equipment.
+
+            All activity on this system is subject to monitoring.
+
+ If information collected reveals possible criminal activity or activity that
+     exceeds privileges, evidence of such activity may be provided to the
+                   relevant authorities for further action.
+
+   By continuing past this point you expressly consent to this monitoring.
+
+Connection to lyon closed.
+Connection to goto.ref.o2.co.uk closed.
+POST BUILD TASK : SUCCESS
+END OF POST BUILD TASK : 0
+Could not match :failure  : False
+Could not match :Error  : False
+Could not match :error  : False
+Logical operation result is FALSE
+Skipping script  : echo "copying deployfail to nice server"
+cd savefail
+chmod 777 savefail.sh
+sed -i -e "s/value/${BUILD_DISPLAY_NAME}/g" savefail.html
+cd ..
+sshpass -p "${password}" scp -pr savefail kamagp@goto.ref.o2.co.uk:/home/kamagp
+sshpass -p "${password}" ssh -tt kamagp@goto.ref.o2.co.uk "scp -pr /home/kamagp/savefail/* kamagp@lyon:/home/kamagp"
+sshpass -p "${password}" ssh -tt kamagp@goto.ref.o2.co.uk "ssh -tt lyon './savefail.sh'"
+exit1
+END OF POST BUILD TASK 	: 1
+Finished: SUCCESS

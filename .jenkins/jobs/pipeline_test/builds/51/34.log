@@ -1,0 +1,22 @@
+[second] Running shell script
++ git merge scm
+Merge made by the 'recursive' strategy.
+ s1 | 0
+ s2 | 0
+ s3 | 0
+ s4 | 0
+ s5 | 0
+ s6 | 0
+ s7 | 0
+ s8 | 0
+ s9 | 0
+ 9 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 s1
+ create mode 100644 s2
+ create mode 100644 s3
+ create mode 100644 s4
+ create mode 100644 s5
+ create mode 100644 s6
+ create mode 100644 s7
+ create mode 100644 s8
+ create mode 100644 s9

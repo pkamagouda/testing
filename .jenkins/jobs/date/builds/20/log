@@ -1,0 +1,17 @@
+Started by user [8mha:////4FHcU5I2etDPgUld/d6aTCyOnwrknvgzOTluF5JftG6EAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/cts1/.jenkins/workspace/date
+[date] $ /bin/sh -xe /tmp/jenkins3014391477882052427.sh
++ cp -r ../release-info.txt .
++ date
++ Current=Wed Oct 24 16:28:30 IST 2018
++ awk FNR==8 {print $3" "$4" "$5" "$6" "$7" "$8} release-info.txt
++ Previous=     
++ sed -i -e s/     /Wed Oct 24 16:28:30 IST 2018/ release-info.txt
++ 
++ awk FNR == 6 {print $2} release-info.txt
++ cut -d . -f 3
++ last_rel=Oct
+/tmp/jenkins3014391477882052427.sh: 9: /tmp/jenkins3014391477882052427.sh: Illegal number: Oct
+Build step 'Execute shell' marked build as failure
+Finished: FAILURE

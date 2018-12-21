@@ -1,0 +1,5 @@
+[second] Running shell script
++ git commit -m s4 adding
+[scm f505ccb] s4 adding
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 s4

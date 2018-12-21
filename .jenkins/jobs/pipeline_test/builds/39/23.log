@@ -1,0 +1,22 @@
+Cloning the remote Git repository
+Cloning repository https://github.com/pkamagouda/testing.git
+ > git init /home/cts1/.jenkins/workspace/pipeline_test/second # timeout=10
+Fetching upstream changes from https://github.com/pkamagouda/testing.git
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/pkamagouda/testing.git +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/pkamagouda/testing.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/pkamagouda/testing.git # timeout=10
+Fetching upstream changes from https://github.com/pkamagouda/testing.git
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/pkamagouda/testing.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision ebbe4d2371b19a621b9c1d0003309b9ac6163a9f (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f ebbe4d2371b19a621b9c1d0003309b9ac6163a9f
+ > git branch -a -v --no-abbrev # timeout=10
+ > git checkout -b master ebbe4d2371b19a621b9c1d0003309b9ac6163a9f
+Commit message: "testing of CI part"
+ > git rev-list --no-walk ebbe4d2371b19a621b9c1d0003309b9ac6163a9f # timeout=10

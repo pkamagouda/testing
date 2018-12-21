@@ -1,0 +1,142 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>This job will push the release zip file to the github repository.</description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.9.1">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/pkamagouda/Test_O2.git</url>
+        <credentialsId>1ccb2e10-e0ee-473a-a4a8-2a7f00ff9a9a</credentialsId>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/Hello_Code</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>#mkdir -p Mange_Order
+cp -r ../Hello_Build_and_Deploy/*.zip .
+git add *
+git commit -m &quot;committing zip file&quot;
+
+
+echo &quot;Copying the required file from the workspace of build and deply job&quot;
+cp -r ../Hello_Build_and_Deploy/savemail .
+cp -r ../Hello_Build_and_Deploy/savefail .
+cp -r ../Hello_Build_and_Deploy/release-info.txt .
+Temp1=`awk &apos;FNR == 6 {print $2}&apos; release-info.txt | cut -d &quot;.&quot; -f 1,2,3 --output-delimiter=&apos;_&apos;`
+
+echo Temp2=${Temp1} &gt;zip.property
+echo password=${pass} &gt; secret.property</command>
+    </hudson.tasks.Shell>
+    <EnvInjectBuilder plugin="envinject@2.0">
+      <info>
+        <propertiesFilePath>secret.property</propertiesFilePath>
+      </info>
+    </EnvInjectBuilder>
+    <EnvInjectBuilder plugin="envinject@2.0">
+      <info>
+        <propertiesFilePath>zip.property</propertiesFilePath>
+      </info>
+    </EnvInjectBuilder>
+  </builders>
+  <publishers>
+    <hudson.plugins.git.GitPublisher plugin="git@3.9.1">
+      <configVersion>2</configVersion>
+      <pushMerge>false</pushMerge>
+      <pushOnlyIfSuccess>true</pushOnlyIfSuccess>
+      <forcePush>false</forcePush>
+      <branchesToPush>
+        <hudson.plugins.git.GitPublisher_-BranchToPush>
+          <targetRepoName>origin</targetRepoName>
+          <branchName>Hello_Code</branchName>
+        </hudson.plugins.git.GitPublisher_-BranchToPush>
+      </branchesToPush>
+    </hudson.plugins.git.GitPublisher>
+    <hudson.plugins.postbuildtask.PostbuildTask plugin="postbuild-task@1.8">
+      <tasks>
+        <hudson.plugins.postbuildtask.TaskProperties>
+          <logTexts>
+            <hudson.plugins.postbuildtask.LogProperties>
+              <logText>commit</logText>
+              <operator>OR</operator>
+            </hudson.plugins.postbuildtask.LogProperties>
+          </logTexts>
+          <EscalateStatus>true</EscalateStatus>
+          <RunIfJobSuccessful>false</RunIfJobSuccessful>
+          <script>echo &quot;updating savemail.html&quot;&#xd;
+cd savemail&#xd;
+chmod 777 savemaildeploy.sh&#xd;
+sed -i -e &quot;s/version/${Temp2}/g&quot; savemail.html&#xd;
+cd ..&#xd;
+&#xd;
+sshpass -p &quot;${password}&quot; scp -pr savemail kamagp@goto.ref.o2.co.uk:/home/kamagp&#xd;
+&#xd;
+sshpass -p &quot;${password}&quot; ssh -tt kamagp@goto.ref.o2.co.uk &quot;scp -pr /home/kamagp/savemail/* kamagp@lyon:/home/kamagp&quot;&#xd;
+&#xd;
+sshpass -p &quot;${password}&quot; ssh -tt kamagp@goto.ref.o2.co.uk &quot;ssh -tt lyon &apos;./savemaildeploy.sh&apos;&quot;</script>
+        </hudson.plugins.postbuildtask.TaskProperties>
+        <hudson.plugins.postbuildtask.TaskProperties>
+          <logTexts>
+            <hudson.plugins.postbuildtask.LogProperties>
+              <logText>failure</logText>
+              <operator>OR</operator>
+            </hudson.plugins.postbuildtask.LogProperties>
+            <hudson.plugins.postbuildtask.LogProperties>
+              <logText>Error</logText>
+              <operator>OR</operator>
+            </hudson.plugins.postbuildtask.LogProperties>
+            <hudson.plugins.postbuildtask.LogProperties>
+              <logText>error</logText>
+              <operator>OR</operator>
+            </hudson.plugins.postbuildtask.LogProperties>
+          </logTexts>
+          <EscalateStatus>true</EscalateStatus>
+          <RunIfJobSuccessful>false</RunIfJobSuccessful>
+          <script>echo &quot;copying deployfail to nice server&quot;&#xd;
+cd savefail&#xd;
+chmod 777 savefail.sh&#xd;
+sed -i -e &quot;s/value/${BUILD_DISPLAY_NAME}/g&quot; savefail.html&#xd;
+cd ..&#xd;
+sshpass -p &quot;${password}&quot; scp -pr savefail kamagp@goto.ref.o2.co.uk:/home/kamagp&#xd;
+sshpass -p &quot;${password}&quot; ssh -tt kamagp@goto.ref.o2.co.uk &quot;scp -pr /home/kamagp/savefail/* kamagp@lyon:/home/kamagp&quot;&#xd;
+sshpass -p &quot;${password}&quot; ssh -tt kamagp@goto.ref.o2.co.uk &quot;ssh -tt lyon &apos;./savefail.sh&apos;&quot;&#xd;
+exit1</script>
+        </hudson.plugins.postbuildtask.TaskProperties>
+      </tasks>
+    </hudson.plugins.postbuildtask.PostbuildTask>
+  </publishers>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.36">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+      <externalDelete></externalDelete>
+      <disableDeferredWipeout>false</disableDeferredWipeout>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+    <EnvInjectPasswordWrapper plugin="envinject@2.0">
+      <injectGlobalPasswords>false</injectGlobalPasswords>
+      <maskPasswordParameters>true</maskPasswordParameters>
+      <passwordEntries>
+        <EnvInjectPasswordEntry>
+          <name>pass</name>
+          <value>{AQAAABAAAAAQYhFaEVULGsqrIx7lRt4YGqlq0AF3BWdbPcgBOSKSTPI=}</value>
+        </EnvInjectPasswordEntry>
+      </passwordEntries>
+    </EnvInjectPasswordWrapper>
+  </buildWrappers>
+</project>

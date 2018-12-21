@@ -1,0 +1,41 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<fingerprint>
+  <timestamp>2018-10-23 15:06:00.142 UTC</timestamp>
+  <md5sum>ba4e55f48e283bbb089600453798a7ce</md5sum>
+  <fileName>Credential id=1ccb2e10-e0ee-473a-a4a8-2a7f00ff9a9a name=pkamagouda/******</fileName>
+  <usages>
+    <entry>
+      <string>test1</string>
+      <ranges>30-39</ranges>
+    </entry>
+    <entry>
+      <string>Hello_Git_Pull</string>
+      <ranges>2-4,25-34</ranges>
+    </entry>
+    <entry>
+      <string>nice_server</string>
+      <ranges>9-18</ranges>
+    </entry>
+    <entry>
+      <string>Hello_Build_and_Deploy</string>
+      <ranges>35-60</ranges>
+    </entry>
+    <entry>
+      <string>Log_Attach</string>
+      <ranges>4-25</ranges>
+    </entry>
+    <entry>
+      <string>pipeline_test</string>
+      <ranges>17-24,27-36,38,41-56</ranges>
+    </entry>
+    <entry>
+      <string>Hello_Version_Save</string>
+      <ranges>1-28</ranges>
+    </entry>
+    <entry>
+      <string>test</string>
+      <ranges>1-26,44-46</ranges>
+    </entry>
+  </usages>
+  <facets/>
+</fingerprint>

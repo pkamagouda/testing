@@ -1,0 +1,51 @@
+Started by upstream project "[8mha:////4ImcPvWHsL7hiIKY0H6ZMv+U5o5MAx4rOjvR/39C/uerAAAAqB+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyxEgYZ/az8JH2P1Jyc/Hin0syclPjEvJR4l9SCnPxKfQBYyGAE0QAAAA==[0mHello_Build_and_Deploy" build number [8mha:////4LvidXkK9y/sEg1xRXUDqaXbhplrbDXe5pNuoL5ogwukAAAAqB+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLQIwSBln9rPwkfY/UnJz8eKfSzJyU+MS8lHiX1IKc/Ep9UwDDgHOE0gAAAA==[0m5
+originally caused by:
+ Started by upstream project "[8mha:////4OMpodbfRwcBx9eG5lYqgctLv/P3m7xkMnkk1G7nDoUUAAAAoB+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAy+EgYR/az8JH2P1Jyc/Hj3zJL4gNKcHH0ARBYDHckAAAA=[0mHello_Git_Pull" build number [8mha:////4A4a2BulEBe5nDE+eoBwHS06zjjuvYxD19txClFp14/0AAAAoB+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLQIwSBlH9rPwkfY/UnJz8ePfMkviA0pwcfVMA7qZuAMoAAAA=[0m5
+ originally caused by:
+  Started by user [8mha:////4FHcU5I2etDPgUld/d6aTCyOnwrknvgzOTluF5JftG6EAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/cts1/.jenkins/workspace/Hello_Version_Save
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
+Cloning the remote Git repository
+Cloning repository https://github.com/pkamagouda/Test_O2.git
+ > git init /home/cts1/.jenkins/workspace/Hello_Version_Save # timeout=10
+Fetching upstream changes from https://github.com/pkamagouda/Test_O2.git
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/pkamagouda/Test_O2.git +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/pkamagouda/Test_O2.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/pkamagouda/Test_O2.git # timeout=10
+Fetching upstream changes from https://github.com/pkamagouda/Test_O2.git
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/pkamagouda/Test_O2.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/Hello_Code^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/Hello_Code^{commit} # timeout=10
+Checking out Revision e2bf2dcaaa079a83a382d6fa19b730ab5c1fb4e8 (refs/remotes/origin/Hello_Code)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f e2bf2dcaaa079a83a382d6fa19b730ab5c1fb4e8
+Commit message: "committing zip file"
+ > git rev-list --no-walk 68bd58241f6aadc769274c415938a22533df9550 # timeout=10
+No emails were triggered.
+[Hello_Version_Save] $ /bin/sh -xe /tmp/jenkins8946564341175278780.sh
++ cp -r ../Hello_Build_and_Deploy/Hello_Osb_1.0.27.zip .
++ git add Hello_Osb_1.0.10.zip Hello_Osb_1.0.11.zip Hello_Osb_1.0.12.zip Hello_Osb_1.0.13.zip Hello_Osb_1.0.14.zip Hello_Osb_1.0.15.zip Hello_Osb_1.0.16.zip Hello_Osb_1.0.17.zip Hello_Osb_1.0.18.zip Hello_Osb_1.0.19.zip Hello_Osb_1.0.2.zip Hello_Osb_1.0.20.zip Hello_Osb_1.0.21.zip Hello_Osb_1.0.22.zip Hello_Osb_1.0.23.zip Hello_Osb_1.0.26.zip Hello_Osb_1.0.27.zip Hello_Osb_1.0.3.zip Hello_Osb_1.0.5.zip Hello_Osb_1.0.8.zip Hello_Osb_1.0.9.zip osb1.property
++ git commit -m committing zip file
+[detached HEAD 1681902] committing zip file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 Hello_Osb_1.0.27.zip
++ echo version_name=1.0.27
+[EnvInject] - Injecting environment variables from a build step.
+[EnvInject] - Injecting as environment variables the properties file path 'osb.property'
+[EnvInject] - Variables injected successfully.
+Pushing HEAD to branch Hello_Code at repo origin
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > git push https://github.com/pkamagouda/Test_O2.git HEAD:Hello_Code
+Email was triggered for: Success
+Sending email for trigger: Success
+Not sending mail to unregistered user priyanka.chavan2@cognizant.com because your SCM claimed this was associated with a user ID ‘[8mha:////4Oz7DZOfLgQKPjjj2q+7tlqf2t7FwUhUrmVGOD+EhR9hAAAAlh+LCAAAAAAAAP9b85aBtbiIQSajNKU4P08vOT+vOD8nVc+jsiC1KCczL9svvyTVzHb1RttJBUeZGJg8GdhyUvPSSzJ8GJhLi3JKGIR8shLLEvVzEvPS9YNLijLz0q0rihik0IxzhtAgwxgggJGJgaGiAMgQKGEQ0y8tTi3SLyjKrEzMy07US84AGplnBACs+UzYmwAAAA==[0mpriyanka.chavan2' which your security realm does not recognize; you may need changes in your SCM plugin
+Sending email to: prapulita2294@gmail.com
+Finished: SUCCESS

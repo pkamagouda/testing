@@ -1,0 +1,3 @@
+[second] Running shell script
++ cd testing
+/home/cts1/.jenkins/workspace/pipeline_test/second@tmp/durable-baff1e96/script.sh: 2: cd: can't cd to testing

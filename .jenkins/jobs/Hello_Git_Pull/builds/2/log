@@ -1,0 +1,24 @@
+Started by an SCM change
+Building in workspace /home/cts1/.jenkins/workspace/Hello_Git_Pull
+Cloning the remote Git repository
+Cloning repository https://github.com/pkamagouda/Hello.git
+ > git init /home/cts1/.jenkins/workspace/Hello_Git_Pull # timeout=10
+Fetching upstream changes from https://github.com/pkamagouda/Hello.git
+ > git --version # timeout=10
+ > git fetch --tags --progress https://github.com/pkamagouda/Hello.git +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/pkamagouda/Hello.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/pkamagouda/Hello.git # timeout=10
+Fetching upstream changes from https://github.com/pkamagouda/Hello.git
+ > git fetch --tags --progress https://github.com/pkamagouda/Hello.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision ba3d2cd3a9435c76de1e0f810cd25e0504f3187f (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f ba3d2cd3a9435c76de1e0f810cd25e0504f3187f
+Commit message: "updated the output file"
+First time build. Skipping changelog.
+No emails were triggered.
+No emails were triggered.
+Triggering a new build of [8mha:////4ImcPvWHsL7hiIKY0H6ZMv+U5o5MAx4rOjvR/39C/uerAAAAqB+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyxEgYZ/az8JH2P1Jyc/Hin0syclPjEvJR4l9SCnPxKfQBYyGAE0QAAAA==[0mHello_Build_and_Deploy
+Finished: SUCCESS

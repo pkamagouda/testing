@@ -1,0 +1,27 @@
+Started by user [8mha:////4FHcU5I2etDPgUld/d6aTCyOnwrknvgzOTluF5JftG6EAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/cts1/.jenkins/workspace/API_Test
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
+Cloning the remote Git repository
+Cloning repository https://github.com/O2IP/APIConnect.git
+ > git init /home/cts1/.jenkins/workspace/API_Test # timeout=10
+Fetching upstream changes from https://github.com/O2IP/APIConnect.git
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/O2IP/APIConnect.git +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/O2IP/APIConnect.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/O2IP/APIConnect.git # timeout=10
+Fetching upstream changes from https://github.com/O2IP/APIConnect.git
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/O2IP/APIConnect.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/jenkinsCode^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/jenkinsCode^{commit} # timeout=10
+Checking out Revision d45018f59faca0fdb702f0d966afb6c11570ef0d (refs/remotes/origin/jenkinsCode)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f d45018f59faca0fdb702f0d966afb6c11570ef0d
+Commit message: "Add files via upload"
+ > git rev-list --no-walk d45018f59faca0fdb702f0d966afb6c11570ef0d # timeout=10
+Finished: SUCCESS

@@ -1,0 +1,234 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-build plugin="workflow-job@2.25">
+  <actions>
+    <hudson.model.CauseAction>
+      <causeBag class="linked-hash-map">
+        <entry>
+          <hudson.model.Cause_-UserIdCause>
+            <userId>admin</userId>
+          </hudson.model.Cause_-UserIdCause>
+          <int>1</int>
+        </entry>
+      </causeBag>
+    </hudson.model.CauseAction>
+    <hudson.plugins.jobConfigHistory.JobConfigBadgeAction plugin="jobConfigHistory@2.18.2">
+      <configDates>
+        <string>2018-12-04_17-38-33</string>
+        <string>2018-12-04_17-37-17</string>
+      </configDates>
+    </hudson.plugins.jobConfigHistory.JobConfigBadgeAction>
+    <org.jenkinsci.plugins.workflow.libs.LibrariesAction plugin="workflow-cps-global-lib@2.12">
+      <libraries/>
+    </org.jenkinsci.plugins.workflow.libs.LibrariesAction>
+    <hudson.plugins.git.util.BuildData plugin="git@3.9.1">
+      <buildsByBranchName>
+        <entry>
+          <string>refs/remotes/origin/master</string>
+          <hudson.plugins.git.util.Build>
+            <marked plugin="git-client@2.7.3">
+              <sha1>4d18542980891cf2f14d94d30e90bfb15a427f02</sha1>
+              <branches class="list">
+                <hudson.plugins.git.Branch>
+                  <sha1 reference="../../../sha1"/>
+                  <name>refs/remotes/origin/master</name>
+                </hudson.plugins.git.Branch>
+              </branches>
+            </marked>
+            <revision reference="../marked"/>
+            <hudsonBuildNumber>53</hudsonBuildNumber>
+          </hudson.plugins.git.util.Build>
+        </entry>
+      </buildsByBranchName>
+      <lastBuild reference="../buildsByBranchName/entry/hudson.plugins.git.util.Build"/>
+      <remoteUrls>
+        <string>https://github.com/pkamagouda/pipeline.git</string>
+      </remoteUrls>
+    </hudson.plugins.git.util.BuildData>
+    <hudson.plugins.git.GitTagAction plugin="git@3.9.1">
+      <tags class="hudson.util.CopyOnWriteMap$Tree">
+        <entry>
+          <string>refs/remotes/origin/master</string>
+          <list/>
+        </entry>
+      </tags>
+      <ws>/home/cts1/.jenkins/workspace/pipeline_test/first</ws>
+    </hudson.plugins.git.GitTagAction>
+    <org.jenkinsci.plugins.workflow.steps.scm.MultiSCMRevisionState plugin="workflow-scm-step@2.7">
+      <revisionStates>
+        <entry>
+          <string>git https://github.com/pkamagouda/testing.git</string>
+          <hudson.scm.SCMRevisionState_-None/>
+        </entry>
+        <entry>
+          <string>git https://github.com/pkamagouda/pipeline.git</string>
+          <hudson.scm.SCMRevisionState_-None reference="../../entry/hudson.scm.SCMRevisionState_-None"/>
+        </entry>
+      </revisionStates>
+    </org.jenkinsci.plugins.workflow.steps.scm.MultiSCMRevisionState>
+    <hudson.plugins.git.util.BuildData plugin="git@3.9.1">
+      <buildsByBranchName>
+        <entry>
+          <string>refs/remotes/origin/master</string>
+          <hudson.plugins.git.util.Build>
+            <marked plugin="git-client@2.7.3">
+              <sha1>ebbe4d2371b19a621b9c1d0003309b9ac6163a9f</sha1>
+              <branches class="list">
+                <hudson.plugins.git.Branch>
+                  <sha1 reference="../../../sha1"/>
+                  <name>refs/remotes/origin/master</name>
+                </hudson.plugins.git.Branch>
+              </branches>
+            </marked>
+            <revision reference="../marked"/>
+            <hudsonBuildNumber>53</hudsonBuildNumber>
+          </hudson.plugins.git.util.Build>
+        </entry>
+      </buildsByBranchName>
+      <lastBuild reference="../buildsByBranchName/entry/hudson.plugins.git.util.Build"/>
+      <remoteUrls>
+        <string>https://github.com/pkamagouda/testing.git</string>
+      </remoteUrls>
+      <index>2</index>
+    </hudson.plugins.git.util.BuildData>
+  </actions>
+  <queueId>69</queueId>
+  <timestamp>1543925317932</timestamp>
+  <startTime>1543925317982</startTime>
+  <result>FAILURE</result>
+  <duration>8748</duration>
+  <charset>UTF-8</charset>
+  <keepLog>false</keepLog>
+  <execution class="org.jenkinsci.plugins.workflow.cps.CpsFlowExecution">
+    <result>FAILURE</result>
+    <script>node(){
+    stage(&apos;File_Creation&apos;){
+        writeFile file: &apos;hello&apos;, text: &apos;hi&apos;
+    }
+    
+    stage(&apos;Clone_Pipeline&apos;){
+        dir(&apos;first&apos;){
+        git branch: &apos;master&apos;,
+            credentialsId: &apos;1ccb2e10-e0ee-473a-a4a8-2a7f00ff9a9a&apos;,
+            url: &apos;https://github.com/pkamagouda/pipeline.git&apos;
+        }
+    }
+    
+    stage(&apos;Clone_testing&apos;){
+        dir(&apos;second&apos;){
+        git branch: &apos;master&apos;,
+            credentialsId: &apos;1ccb2e10-e0ee-473a-a4a8-2a7f00ff9a9a&apos;,
+            url: &apos;https://github.com/pkamagouda/testing.git&apos;
+withCredentials([[$class: &apos;UsernamePasswordMultiBinding&apos;, 
+                credentialsId: &apos;1ccb2e10-e0ee-473a-a4a8-2a7f00ff9a9a&apos;, 
+                usernameVariable: &apos;pkamagouda&apos;, 
+                passwordVariable: &apos;Pannu@1125&apos;]]){
+            sh(&apos;touch hello&apos;)
+            sh(&apos;git add hello&apos;)
+            sh(&apos;git commit -m &quot;testing&quot;&apos;)
+            sh(&apos;git checkout scm&apos;)
+            sh(&apos;touch m&apos;)
+            sh(&apos;git add m&apos;)
+            sh(&apos;git commit -m &quot;m adding&quot;&apos;)
+            sh(&apos;git checkout master&apos;)
+            sh(&apos;git merge scm&apos;)
+            
+            sh(&apos;git push https://${usernameVariable}:${passwordVariable}@github.com/pkamagouda/testing.git --all&apos;)
+}
+           
+        }
+    }
+}  
+    
+
+
+
+
+</script>
+    <loadedScripts class="map"/>
+    <durabilityHint>MAX_SURVIVABILITY</durabilityHint>
+    <timings class="map">
+      <entry>
+        <string>flowNode</string>
+        <long>2607820006</long>
+      </entry>
+      <entry>
+        <string>classLoad</string>
+        <long>5459593</long>
+      </entry>
+      <entry>
+        <string>run</string>
+        <long>3845455230</long>
+      </entry>
+      <entry>
+        <string>parse</string>
+        <long>23046530</long>
+      </entry>
+      <entry>
+        <string>saveProgram</string>
+        <long>40366048</long>
+      </entry>
+    </timings>
+    <sandbox>false</sandbox>
+    <iota>44</iota>
+    <head>1:44</head>
+    <done>true</done>
+    <resumeBlocked>false</resumeBlocked>
+  </execution>
+  <completed>true</completed>
+  <checkouts class="hudson.util.PersistedList">
+    <org.jenkinsci.plugins.workflow.job.WorkflowRun_-SCMCheckout>
+      <scm class="hudson.plugins.git.GitSCM" plugin="git@3.9.1">
+        <configVersion>2</configVersion>
+        <userRemoteConfigs>
+          <hudson.plugins.git.UserRemoteConfig>
+            <url>https://github.com/pkamagouda/pipeline.git</url>
+            <credentialsId>1ccb2e10-e0ee-473a-a4a8-2a7f00ff9a9a</credentialsId>
+          </hudson.plugins.git.UserRemoteConfig>
+        </userRemoteConfigs>
+        <branches class="singleton-list">
+          <hudson.plugins.git.BranchSpec>
+            <name>*/master</name>
+          </hudson.plugins.git.BranchSpec>
+        </branches>
+        <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+        <submoduleCfg class="empty-list"/>
+        <extensions>
+          <hudson.plugins.git.extensions.impl.LocalBranch>
+            <localBranch>master</localBranch>
+          </hudson.plugins.git.extensions.impl.LocalBranch>
+        </extensions>
+      </scm>
+      <node></node>
+      <workspace>/home/cts1/.jenkins/workspace/pipeline_test/first</workspace>
+      <changelogFile>/home/cts1/.jenkins/jobs/pipeline_test/builds/53/changelog0.xml</changelogFile>
+      <pollingBaseline class="hudson.scm.SCMRevisionState$None" reference="../../../actions/org.jenkinsci.plugins.workflow.steps.scm.MultiSCMRevisionState/revisionStates/entry/hudson.scm.SCMRevisionState_-None"/>
+    </org.jenkinsci.plugins.workflow.job.WorkflowRun_-SCMCheckout>
+    <org.jenkinsci.plugins.workflow.job.WorkflowRun_-SCMCheckout>
+      <scm class="hudson.plugins.git.GitSCM" plugin="git@3.9.1">
+        <configVersion>2</configVersion>
+        <userRemoteConfigs>
+          <hudson.plugins.git.UserRemoteConfig>
+            <url>https://github.com/pkamagouda/testing.git</url>
+            <credentialsId>1ccb2e10-e0ee-473a-a4a8-2a7f00ff9a9a</credentialsId>
+          </hudson.plugins.git.UserRemoteConfig>
+        </userRemoteConfigs>
+        <branches class="singleton-list">
+          <hudson.plugins.git.BranchSpec>
+            <name>*/master</name>
+          </hudson.plugins.git.BranchSpec>
+        </branches>
+        <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+        <submoduleCfg class="empty-list"/>
+        <extensions>
+          <hudson.plugins.git.extensions.impl.LocalBranch>
+            <localBranch>master</localBranch>
+          </hudson.plugins.git.extensions.impl.LocalBranch>
+        </extensions>
+      </scm>
+      <node></node>
+      <workspace>/home/cts1/.jenkins/workspace/pipeline_test/second</workspace>
+      <changelogFile>/home/cts1/.jenkins/jobs/pipeline_test/builds/53/changelog1.xml</changelogFile>
+      <pollingBaseline class="hudson.scm.SCMRevisionState$None" reference="../../../actions/org.jenkinsci.plugins.workflow.steps.scm.MultiSCMRevisionState/revisionStates/entry/hudson.scm.SCMRevisionState_-None"/>
+    </org.jenkinsci.plugins.workflow.job.WorkflowRun_-SCMCheckout>
+  </checkouts>
+</flow-build>

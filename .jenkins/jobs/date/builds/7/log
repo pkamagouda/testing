@@ -1,0 +1,13 @@
+Started by user [8mha:////4FHcU5I2etDPgUld/d6aTCyOnwrknvgzOTluF5JftG6EAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+[EnvInject] - Loading node environment variables.
+Building in workspace /home/cts1/.jenkins/workspace/date
+[date] $ /bin/sh -xe /tmp/jenkins6448963562114529231.sh
++ date
++ Temp=Wed Oct 24 15:46:45 IST 2018
++ cp -r ../release .
++ awk FNR==8 {print $3 $4 $5 $6 $7 $8 $6} release
++ Temp1=ThuApr2611:03:46UTC201811:03:46
++ echo ThuApr2611:03:46UTC201811:03:46
+ThuApr2611:03:46UTC201811:03:46
++ sed -i -e s/ThuApr2611:03:46UTC201811:03:46/Wed Oct 24 15:46:45 IST 2018/ release
+Finished: SUCCESS

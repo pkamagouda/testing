@@ -1,0 +1,10 @@
+Started on 24 Oct, 2018 11:09:00 AM
+Using strategy: Default
+[poll] Last Built Revision: Revision ba3d2cd3a9435c76de1e0f810cd25e0504f3187f (refs/remotes/origin/master)
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > git ls-remote -h https://github.com/pkamagouda/Hello.git # timeout=10
+Found 1 remote heads on https://github.com/pkamagouda/Hello.git
+[poll] Latest remote head revision on refs/heads/master is: 3bb3548048a7f8384c96b71b6e5045349913a6c3
+Done. Took 1.5 sec
+Changes found

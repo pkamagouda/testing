@@ -1,0 +1,5 @@
+[second] Running shell script
++ git push https://****:Pannu1125@github.com/****/testing.git --all
+To https://****:Pannu1125@github.com/****/testing.git
+   ebbe4d2..67f76a8  master -> master
+ * [new branch]      scm -> scm
